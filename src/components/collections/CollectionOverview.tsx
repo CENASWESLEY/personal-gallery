@@ -1,4 +1,5 @@
 import { collections, totalPhotos } from "@/data/gallery";
+import { getCollectionCovers } from "@/data/collection-covers";
 import { Icon } from "@/components/ui/Icon";
 
 /** Photo-stack directory: each card is a deep link to its actual chapter. */
@@ -36,7 +37,7 @@ export function CollectionOverview() {
             aria-label={`Explore ${collection.title} collection`}
           >
             <span className="folder-stack">
-              {collection.photos.slice(0, 3).map((photo, index) => (
+              {getCollectionCovers(collection).map((photo, index) => (
                 <img
                   src={photo.thumbnail}
                   alt={index === 0 ? photo.alt : ""}
