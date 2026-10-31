@@ -5,7 +5,8 @@ import { heroPortrait } from "@/data/gallery";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://fragments-personal-gallery-supav.nutmeg-bead-1672.chatgpt.site",
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://fragments-personal-gallery-supav.nutmeg-bead-1672.chatgpt.site",
   ),
   title: "MARK. — Supavit Mungmalee / Mark Cenas",
   description:
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     description: "Every side is a story.",
     images: [
       {
-        url: "/archive/c04-007.webp",
+        url: heroPortrait.src,
         width: heroPortrait.width,
         height: heroPortrait.height,
         alt: "Supavit Mungmalee in a black suit",

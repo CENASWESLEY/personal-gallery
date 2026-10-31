@@ -1,5 +1,6 @@
 import archive from "./photographs.json";
 import { eventDetails } from "./event-details";
+import { assetPath } from "@/lib/asset-path";
 import type { Collection, Photograph } from "@/types/gallery";
 
 /** Owner-supplied identity and contact information. */
@@ -31,10 +32,18 @@ export const collections: Collection[] = archive
       outfit: item.outfit,
       ...eventDetails[item.id],
     },
-    photos: item.photos as Photograph[],
+    photos: item.photos.map((photo) => ({
+      ...photo,
+      src: assetPath(photo.src),
+      thumbnail: assetPath(photo.thumbnail),
+    })) as Photograph[],
   }));
 export const highlights = archive.find((group) => group.id === "highlights")!
-  .photos as Photograph[];
+  .photos.map((photo) => ({
+    ...photo,
+    src: assetPath(photo.src),
+    thumbnail: assetPath(photo.thumbnail),
+  })) as Photograph[];
 export const totalPhotos = collections.reduce(
   (sum, collection) => sum + collection.photos.length,
   0,

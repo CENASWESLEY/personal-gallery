@@ -3,6 +3,7 @@ import { collections, heroPortrait } from "@/data/gallery";
 import { useMirrorOrbit } from "@/hooks/useMirrorOrbit";
 import { Icon } from "@/components/ui/Icon";
 import { photoFraming } from "@/lib/photo-framing";
+import { assetPath } from "@/lib/asset-path";
 import type { ViewerSelection } from "@/types/gallery";
 import type { HeroMode } from "@/types/hero";
 
@@ -107,7 +108,7 @@ export function MirrorOrbit({
           }
         >
           <img
-            src={portraitSrc}
+            src={assetPath(portraitSrc)}
             alt={
               mode === "rows"
                 ? "Mark standing in a light blue shirt, photographed from below"

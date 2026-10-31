@@ -142,3 +142,18 @@ These settings apply to chapter photos, album covers, the favorites reel,
 About and mirror photos. The full-screen viewer retains the full photograph
 and its own interactive zoom. Folder sync and builds preserve valid saved
 zoom/position values; newly imported photos start at `zoom: 1`.
+
+## GitHub Pages
+
+Live gallery: https://cenaswesley.github.io/personal-gallery/
+
+GitHub Pages uses **GitHub Actions**, not **Deploy from a branch**.
+The workflow in `.github/workflows/pages.yml` builds Next.js and deploys `out/`
+automatically after a push to `main`. The GitHub repository URL shows source
+code; the `github.io` URL opens the gallery.
+
+The workflow sets `NEXT_PUBLIC_BASE_PATH=/personal-gallery` and
+`NEXT_PUBLIC_SITE_URL=https://cenaswesley.github.io`. Local development
+continues to use `npm run dev` without a base path.
+The committed optimized images let GitHub build without the local original
+photo folders; commit updated image assets and `photographs.json` when adding photos.
