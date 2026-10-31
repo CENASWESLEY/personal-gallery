@@ -2,14 +2,26 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { mirrorTransform } from "../src/lib/mirror-layout.ts";
 
-test("Flow enters left/lower, coils upward, and leaves upper/right", () => {
-  const start = mirrorTransform("rows", 0, 30, 1, 1440),
-    end = mirrorTransform("rows", 0, 30, 219, 1440);
-  assert.ok(start.x < 0 && start.y > 0);
-  assert.ok(end.x > 0 && end.y < 0);
-  assert.ok(
-    mirrorTransform("rows", 0, 30, 55, 1440).z !==
-      mirrorTransform("rows", 0, 30, 110, 1440).z,
+test("Flow rises through spaced lanes behind the portrait", () => {
+  const start = mirrorTransform("rows", 0, 6, 1, 1440),
+    end = mirrorTransform("rows", 0, 6, 259, 1440);
+  assert.ok(start.y > 300 && end.y < -300);
+  assert.ok(Math.abs(start.x - end.x) < 5);
+  assert.ok(start.z < 20 && end.z < 20);
+  const left = mirrorTransform("rows", 0, 6, 80, 1440);
+  const right = mirrorTransform("rows", 1, 6, 80, 1440);
+  assert.ok(right.x - left.x > 800);
+});
+
+test("Flow advances photo cycles at invisible wrap boundaries in either direction", () => {
+  assert.equal(mirrorTransform("rows", 0, 6, 259.99, 1440).cycle, 0);
+  const wrap = mirrorTransform("rows", 0, 6, 260, 1440);
+  assert.equal(wrap.cycle, 1);
+  assert.equal(wrap.opacity, 0);
+  assert.equal(mirrorTransform("rows", 0, 6, -1, 1440).cycle, -1);
+  assert.deepEqual(
+    mirrorTransform("rows", 2, 6, 0, 375, true),
+    mirrorTransform("rows", 2, 6, 900, 375, true),
   );
 });
 

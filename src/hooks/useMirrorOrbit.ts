@@ -10,7 +10,7 @@ import { mirrorTransform } from "@/lib/mirror-layout";
 import type { HeroMode } from "@/types/hero";
 
 /**
- * Runs a frame-budgeted elliptical mirror orbit without React rerenders.
+ * Runs frame-budgeted mirror motion; React updates only when Flow cycles images.
  * Pointer drags share the same rotation state as autoplay and step controls.
  */
 export function useMirrorOrbit(count: number, mode: HeroMode = "orbit") {
@@ -23,10 +23,13 @@ export function useMirrorOrbit(count: number, mode: HeroMode = "orbit") {
   const hovering = useRef(false);
   const reduced = useRef(false);
   const [playing, setPlaying] = useState(true);
+  const lastCycles = useRef<number[]>(Array(count).fill(0));
+  const [cycles, setCycles] = useState<number[]>(lastCycles.current);
   const paint = useCallback(() => {
     const element = stage.current;
     if (!element) return;
     const width = element.clientWidth;
+    const nextCycles: number[] = [];
     element
       .querySelectorAll<HTMLElement>(".orbit-shard")
       .forEach((shard, index) => {
@@ -44,7 +47,12 @@ export function useMirrorOrbit(count: number, mode: HeroMode = "orbit") {
         shard.style.setProperty("--scale", String(transform.scale));
         shard.style.opacity = String(transform.opacity);
         shard.style.zIndex = String(transform.z);
+        nextCycles.push(transform.cycle ?? 0);
       });
+    if (mode === "rows" && nextCycles.some((cycle, i) => cycle !== lastCycles.current[i])) {
+      lastCycles.current = nextCycles;
+      setCycles(nextCycles);
+    }
     element.dataset.ready = "true";
   }, [count, mode]);
   useEffect(() => {
@@ -92,6 +100,7 @@ export function useMirrorOrbit(count: number, mode: HeroMode = "orbit") {
   }, [playing, paint]);
   return {
     stage,
+    cycles,
     playing,
     setPlaying,
     suppressClick,

@@ -22,59 +22,6 @@
   }
 }
 
-/* Six portraits fit together beneath the desktop chapter heading. */
-@media (min-width: 1024px) {
-  .chapter {
-    padding-top: 20px;
-    padding-bottom: 25px;
-  }
-  .chapter-heading {
-    margin: 14px 0 16px;
-    gap: 20px;
-  }
-  .chapter-big-number {
-    font-size: 50px;
-  }
-  .chapter-heading h3 {
-    font-size: 30px;
-  }
-  .chapter-heading .eyebrow {
-    font-size: 7px;
-    margin-bottom: 3px;
-  }
-  .event-details {
-    margin-bottom: 15px;
-  }
-  .event-details dl {
-    padding-top: 10px;
-  }
-  .event-details dt {
-    margin-bottom: 4px;
-    font-size: 6px;
-  }
-  .event-details dd {
-    font-size: 10px;
-  }
-  .selection-label {
-    margin-bottom: 10px;
-  }
-  .featured-photo-grid {
-    width: min(100%, calc((100svh - 410px) * 1.2 + 28px), 544px);
-    margin-inline: auto;
-    gap: 14px;
-  }
-  .featured-photo-grid .photo-tile {
-    height: clamp(125px, calc((100svh - 410px) / 2), 215px);
-    aspect-ratio: auto;
-  }
-  .collection-archive {
-    margin-top: 16px;
-  }
-  .archive-bar {
-    padding-top: 10px;
-  }
-}
-
 /* Equal-sized photographic film, floating in from the left and drifting right. */
 .film-reel-window {
   overflow: hidden;
@@ -181,34 +128,33 @@
   }
 }
 
-/* A helical film path passes both behind and in front of the back-facing pose. */
+/* Sparse, irregular mirrors float behind the blue-shirt portrait. */
 .mode-rows .orbit-shard {
-  width: clamp(95px, 9vw, 135px);
-  height: clamp(130px, 12vw, 180px);
+  width: clamp(110px, 13vw, 185px);
+  height: clamp(150px, 17vw, 245px);
 }
-.mode-rows .shard-face {
-  clip-path: none;
-  background: #171717;
-  box-shadow: 0 10px 18px #0003;
+.mode-rows .hero-person { z-index: 20; }
+
+/* Number-only controls keep the scene selector compact and touch-friendly. */
+.hero .hero-style-picker { gap: 6px; margin: 12px auto 0; }
+.hero .hero-style-picker > button {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  min-width: 44px;
+  min-height: 44px;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  padding: 0;
+  gap: 0;
 }
-.mode-rows .shard-face:before {
-  background: repeating-linear-gradient(0deg, #eee 0 5px, #171717 5px 16px);
-  inset: 8px 3px;
-  opacity: 0.9;
-}
-.mode-rows .shard-face img {
-  clip-path: none;
-  inset: 9px 11px;
-  width: calc(100% - 22px);
-  height: calc(100% - 18px);
-}
-.mode-rows .shard-number {
-  bottom: 13px;
-  left: 15px;
-  font-size: 6px;
-}
-.mode-rows .hero-person {
-  z-index: 20;
+.hero .hero-style-picker > button > span {
+  grid-row: auto;
+  font-size: 10px;
+  opacity: 1;
 }
 @media (max-width: 560px) {
   .highlight-film-card {

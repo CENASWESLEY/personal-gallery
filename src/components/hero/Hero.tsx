@@ -54,31 +54,24 @@ export function Hero({
             {
               id: "orbit",
               number: "01",
-              name: "Orbit",
-              caption: "Orbiting glass",
             },
             {
               id: "shatter",
               number: "02",
-              name: "Shatter",
-              caption: "Rising fragments",
             },
             {
               id: "rows",
               number: "03",
-              name: "Flow",
-              caption: "Spiraling film",
             },
           ] as const
         ).map((style) => (
           <button
             key={style.id}
+            aria-label={`Select mode ${style.number}`}
             aria-pressed={mode === style.id}
             onClick={() => choose(style.id)}
           >
             <span>{style.number}</span>
-            <strong>{style.name}</strong>
-            <small lang="en">{style.caption}</small>
           </button>
         ))}
       </div>

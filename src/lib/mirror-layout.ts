@@ -11,17 +11,21 @@ export function mirrorTransform(
 ) {
   const radius = Math.min(width * 0.405, 600);
   if (mode === "rows") {
-    const progress = (((index / Math.max(count, 1) + phase / 220) % 1) + 1) % 1;
-    const angle = progress * Math.PI * 4;
-    const depth = Math.cos(angle);
-    const x = (progress - 0.5) * radius * 1.4 + Math.sin(angle) * radius * 0.42;
+    // Keep six spaced lanes behind the portrait. Replace a photo only at the
+    // invisible wrap boundary, so the next image rises in from below naturally.
+    const raw = index / Math.max(count, 1) + (reduced ? 0.18 : phase / 260);
+    const cycle = Math.floor(raw);
+    const progress = raw - cycle;
+    const lanes = [-0.92, 0.73, -0.52, 0.97, -0.78, 0.49];
+    const sway = Math.sin(progress * Math.PI * 2 + index) * radius * 0.025;
     return {
-      x,
-      y: 220 - progress * 470,
-      rotation: Math.sin(angle) * 20 - 8,
-      scale: 0.62 + (depth + 1) * 0.19,
-      opacity: Math.min(1, progress / 0.07, (1 - progress) / 0.07),
-      z: depth > 0 ? 24 : 3,
+      x: lanes[index % lanes.length] * radius + sway,
+      y: 340 - progress * 700,
+      rotation: (index % 2 ? 9 : -11) + Math.sin(progress * Math.PI) * 5,
+      scale: 0.78 + (index % 3) * 0.07,
+      opacity: reduced ? 1 : Math.min(1, progress / 0.1, (1 - progress) / 0.1),
+      z: 2 + (index % 3),
+      cycle: reduced ? 0 : cycle,
     };
   }
   if (mode === "shatter") {

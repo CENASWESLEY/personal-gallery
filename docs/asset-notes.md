@@ -30,3 +30,17 @@ and lighting; do not beautify, redraw, stylize, reshape or reinterpret the perso
 Output a tall full-body cutout with true alpha transparency and a small transparent
 margin. No text, no ground, no shadows outside the person. This asset is for the
 center of his personal portfolio hero.
+
+## Blue-shirt Flow portrait (October 31 update)
+
+- Original: `D:\Photo\9.Blue Shirt\S__16040039_0.jpg`.
+- Saved asset: `public/images/mark-blue-flow.webp`.
+- Tool/mode: built-in ImageGen, background-extraction edit with transparent alpha.
+- Prompt: isolate only the full standing man in the light blue shirt onto actual
+  transparent alpha. Preserve exact identity, face, glasses, hairstyle, pose,
+  proportions and low camera angle, shirt, trousers, belt, watch and both shoes.
+  Remove ceiling, walls, floor, furniture and people. Do not beautify, redraw,
+  restyle, reshape, correct perspective, or alter clothing. Preserve original
+  photographic colors and lighting. Include hair and entire shoes with a small
+  transparent margin. No text, ground or cast shadows.
+- Original gallery image remains untouched; hero is a separate extracted asset.

@@ -7,15 +7,70 @@
     "outfit": "White shirt, tie, formal suit",
     "photos": [
       {
+        "id": "cooperative-competition-36ec9118e4fe",
+        "src": "/archive/cooperative-competition-36ec9118e4fe.webp",
+        "thumbnail": "/archive/cooperative-competition-36ec9118e4fe-thumb.webp",
+        "width": 1267,
+        "height": 1900,
+        "title": "Cooperative Competition / 01",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 1",
+        "position": "50% 38%",
+        "sourceFile": "S__16072710_0.jpg"
+      },
+      {
+        "id": "cooperative-competition-615f647975e4",
+        "src": "/archive/cooperative-competition-615f647975e4.webp",
+        "thumbnail": "/archive/cooperative-competition-615f647975e4-thumb.webp",
+        "width": 1267,
+        "height": 1900,
+        "title": "Cooperative Competition / 02",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 2",
+        "position": "50% 38%",
+        "sourceFile": "S__16072709_0.jpg"
+      },
+      {
         "id": "c02-001",
         "src": "/archive/c02-001.webp",
         "thumbnail": "/archive/c02-001-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "Cooperative Competition / 01",
-        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 1",
+        "title": "Cooperative Competition / 03",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16040089_0.jpg"
+      },
+      {
+        "id": "cooperative-competition-a902d35d1ab6",
+        "src": "/archive/cooperative-competition-a902d35d1ab6.webp",
+        "thumbnail": "/archive/cooperative-competition-a902d35d1ab6-thumb.webp",
+        "width": 1600,
+        "height": 1067,
+        "title": "Cooperative Competition / 04",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 4",
+        "position": "50% 38%",
+        "sourceFile": "S__16072711_0.jpg"
+      },
+      {
+        "id": "cooperative-competition-efdfea7b24ec",
+        "src": "/archive/cooperative-competition-efdfea7b24ec.webp",
+        "thumbnail": "/archive/cooperative-competition-efdfea7b24ec-thumb.webp",
+        "width": 1600,
+        "height": 1067,
+        "title": "Cooperative Competition / 05",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 5",
+        "position": "50% 38%",
+        "sourceFile": "S__16072712_0.jpg"
+      },
+      {
+        "id": "cooperative-competition-184644e7bd03",
+        "src": "/archive/cooperative-competition-184644e7bd03.webp",
+        "thumbnail": "/archive/cooperative-competition-184644e7bd03-thumb.webp",
+        "width": 1600,
+        "height": 1067,
+        "title": "Cooperative Competition / 06",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 6",
+        "position": "50% 38%",
+        "sourceFile": "S__16072713_0.jpg"
       },
       {
         "id": "c02-003",
@@ -23,8 +78,8 @@
         "thumbnail": "/archive/c02-003-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "Cooperative Competition / 02",
-        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 2",
+        "title": "Cooperative Competition / 07",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 7",
         "position": "50% 38%",
         "sourceFile": "S__16040091_0.jpg"
       },
@@ -34,8 +89,8 @@
         "thumbnail": "/archive/c02-002-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "Cooperative Competition / 03",
-        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 3",
+        "title": "Cooperative Competition / 08",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 8",
         "position": "50% 38%",
         "sourceFile": "S__16040090_0.jpg"
       },
@@ -45,8 +100,8 @@
         "thumbnail": "/archive/c02-004-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "Cooperative Competition / 04",
-        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 4",
+        "title": "Cooperative Competition / 09",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 9",
         "position": "50% 38%",
         "sourceFile": "S__16040092_0.jpg"
       }
@@ -617,114 +672,6 @@
     ]
   },
   {
-    "id": "bkk-challenge",
-    "folder": "6.BKK challenge",
-    "title": "BKK Challenge",
-    "english": "Show up. Stand out.",
-    "outfit": "Black suit, white shirt, event tailoring",
-    "photos": [
-      {
-        "id": "c06-004",
-        "src": "/archive/c06-004.webp",
-        "thumbnail": "/archive/c06-004-thumb.webp",
-        "width": 1069,
-        "height": 1900,
-        "title": "BKK Challenge / 01",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 1",
-        "position": "50% 38%",
-        "sourceFile": "S__16040004_0.jpg"
-      },
-      {
-        "id": "c06-002",
-        "src": "/archive/c06-002.webp",
-        "thumbnail": "/archive/c06-002-thumb.webp",
-        "width": 1069,
-        "height": 1900,
-        "title": "BKK Challenge / 02",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 2",
-        "position": "50% 38%",
-        "sourceFile": "S__16040002_0.jpg"
-      },
-      {
-        "id": "c06-003",
-        "src": "/archive/c06-003.webp",
-        "thumbnail": "/archive/c06-003-thumb.webp",
-        "width": 1069,
-        "height": 1900,
-        "title": "BKK Challenge / 03",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 3",
-        "position": "50% 38%",
-        "sourceFile": "S__16040003_0.jpg"
-      },
-      {
-        "id": "c06-005",
-        "src": "/archive/c06-005.webp",
-        "thumbnail": "/archive/c06-005-thumb.webp",
-        "width": 1069,
-        "height": 1900,
-        "title": "BKK Challenge / 04",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 4",
-        "position": "50% 38%",
-        "sourceFile": "S__16040005_0.jpg"
-      },
-      {
-        "id": "c06-001",
-        "src": "/archive/c06-001.webp",
-        "thumbnail": "/archive/c06-001-thumb.webp",
-        "width": 1069,
-        "height": 1900,
-        "title": "BKK Challenge / 05",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 5",
-        "position": "50% 38%",
-        "sourceFile": "S__16040001_0.jpg"
-      },
-      {
-        "id": "c06-008",
-        "src": "/archive/c06-008.webp",
-        "thumbnail": "/archive/c06-008-thumb.webp",
-        "width": 1426,
-        "height": 1900,
-        "title": "BKK Challenge / 06",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 6",
-        "position": "50% 38%",
-        "sourceFile": "S__16040008_0.jpg"
-      },
-      {
-        "id": "c06-007",
-        "src": "/archive/c06-007.webp",
-        "thumbnail": "/archive/c06-007-thumb.webp",
-        "width": 1426,
-        "height": 1900,
-        "title": "BKK Challenge / 07",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 7",
-        "position": "50% 38%",
-        "sourceFile": "S__16040007_0.jpg"
-      },
-      {
-        "id": "c06-006",
-        "src": "/archive/c06-006.webp",
-        "thumbnail": "/archive/c06-006-thumb.webp",
-        "width": 1426,
-        "height": 1900,
-        "title": "BKK Challenge / 08",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 8",
-        "position": "50% 38%",
-        "sourceFile": "S__16040006_0.jpg"
-      },
-      {
-        "id": "c06-009",
-        "src": "/archive/c06-009.webp",
-        "thumbnail": "/archive/c06-009-thumb.webp",
-        "width": 1426,
-        "height": 1900,
-        "title": "BKK Challenge / 09",
-        "alt": "Supavit Mungmalee — BKK Challenge, photograph 9",
-        "position": "50% 38%",
-        "sourceFile": "S__16040009_0.jpg"
-      }
-    ]
-  },
-  {
     "id": "coeidol",
     "folder": "6.COEIDOL",
     "title": "COEIDOL",
@@ -888,8 +835,116 @@
     ]
   },
   {
+    "id": "bkk-challenge",
+    "folder": "7.BKK challenge",
+    "title": "BKK Challenge",
+    "english": "Show up. Stand out.",
+    "outfit": "Black suit, white shirt, event tailoring",
+    "photos": [
+      {
+        "id": "c06-004",
+        "src": "/archive/c06-004.webp",
+        "thumbnail": "/archive/c06-004-thumb.webp",
+        "width": 1069,
+        "height": 1900,
+        "title": "BKK Challenge / 01",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 1",
+        "position": "50% 38%",
+        "sourceFile": "S__16040004_0.jpg"
+      },
+      {
+        "id": "c06-002",
+        "src": "/archive/c06-002.webp",
+        "thumbnail": "/archive/c06-002-thumb.webp",
+        "width": 1069,
+        "height": 1900,
+        "title": "BKK Challenge / 02",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 2",
+        "position": "50% 38%",
+        "sourceFile": "S__16040002_0.jpg"
+      },
+      {
+        "id": "c06-003",
+        "src": "/archive/c06-003.webp",
+        "thumbnail": "/archive/c06-003-thumb.webp",
+        "width": 1069,
+        "height": 1900,
+        "title": "BKK Challenge / 03",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 3",
+        "position": "50% 38%",
+        "sourceFile": "S__16040003_0.jpg"
+      },
+      {
+        "id": "c06-005",
+        "src": "/archive/c06-005.webp",
+        "thumbnail": "/archive/c06-005-thumb.webp",
+        "width": 1069,
+        "height": 1900,
+        "title": "BKK Challenge / 04",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 4",
+        "position": "50% 38%",
+        "sourceFile": "S__16040005_0.jpg"
+      },
+      {
+        "id": "c06-001",
+        "src": "/archive/c06-001.webp",
+        "thumbnail": "/archive/c06-001-thumb.webp",
+        "width": 1069,
+        "height": 1900,
+        "title": "BKK Challenge / 05",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 5",
+        "position": "50% 38%",
+        "sourceFile": "S__16040001_0.jpg"
+      },
+      {
+        "id": "c06-008",
+        "src": "/archive/c06-008.webp",
+        "thumbnail": "/archive/c06-008-thumb.webp",
+        "width": 1426,
+        "height": 1900,
+        "title": "BKK Challenge / 06",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 6",
+        "position": "50% 38%",
+        "sourceFile": "S__16040008_0.jpg"
+      },
+      {
+        "id": "c06-007",
+        "src": "/archive/c06-007.webp",
+        "thumbnail": "/archive/c06-007-thumb.webp",
+        "width": 1426,
+        "height": 1900,
+        "title": "BKK Challenge / 07",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 7",
+        "position": "50% 38%",
+        "sourceFile": "S__16040007_0.jpg"
+      },
+      {
+        "id": "c06-006",
+        "src": "/archive/c06-006.webp",
+        "thumbnail": "/archive/c06-006-thumb.webp",
+        "width": 1426,
+        "height": 1900,
+        "title": "BKK Challenge / 08",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 8",
+        "position": "50% 38%",
+        "sourceFile": "S__16040006_0.jpg"
+      },
+      {
+        "id": "c06-009",
+        "src": "/archive/c06-009.webp",
+        "thumbnail": "/archive/c06-009-thumb.webp",
+        "width": 1426,
+        "height": 1900,
+        "title": "BKK Challenge / 09",
+        "alt": "Supavit Mungmalee — BKK Challenge, photograph 9",
+        "position": "50% 38%",
+        "sourceFile": "S__16040009_0.jpg"
+      }
+    ]
+  },
+  {
     "id": "cafe-bkk-challenge",
-    "folder": "7.Cafe BKK Challenge",
+    "folder": "8.Cafe BKK Challenge",
     "title": "Cafe BKK Challenge",
     "english": "After the city slows down.",
     "outfit": "White shirt, black trousers, relaxed styling",
@@ -964,7 +1019,7 @@
   },
   {
     "id": "white-shirt",
-    "folder": "8.White Shirt",
+    "folder": "9.White Shirt",
     "title": "White Shirt",
     "english": "White shirt. Open possibilities.",
     "outfit": "White shirt, sunglasses, city casual",
@@ -1215,7 +1270,7 @@
   },
   {
     "id": "blue-shirt",
-    "folder": "9.Blue Shirt",
+    "folder": "10.Blue Shirt",
     "title": "Blue Shirt",
     "english": "A little blue. A lot of me.",
     "outfit": "Blue shirt, glasses, smart casual",
