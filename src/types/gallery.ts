@@ -10,18 +10,6 @@ export interface Photograph {
   height: number;
   sourceFile: string;
 }
-/** Distinct presentation vocabulary for the ten chronological chapters. */
-export type CollectionLayout =
-  | "editorial"
-  | "stage"
-  | "filmstrip"
-  | "noir"
-  | "diptych"
-  | "panorama"
-  | "mosaic"
-  | "cinema"
-  | "lookbook"
-  | "contact";
 /** Null fields await confirmed facts from the owner. */
 export interface EventDetails {
   eventName: string | null;
@@ -38,7 +26,6 @@ export interface Collection {
   folder: string;
   title: string;
   english: string;
-  layout: CollectionLayout;
   details: EventDetails;
   photos: Photograph[];
 }

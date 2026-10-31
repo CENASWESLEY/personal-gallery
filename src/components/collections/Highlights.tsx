@@ -39,7 +39,7 @@ export function Highlights({
           <p lang="th">
             บางมุมที่ชอบ บางช่วงเวลาที่อยากให้คุณเห็นก่อน
             <br />
-            20 ภาพจาก Highlight ของผม
+            Highlight ที่ผมชอบที่สุด
           </p>
           <div className="reel-controls">
             <button
@@ -58,11 +58,12 @@ export function Highlights({
             </button>
             <button
               className="text-link"
+              disabled={!highlights.length}
               onClick={() =>
                 onOpen({ collectionId: "highlights", photoIndex: 0 })
               }
             >
-              Explore all 20 <Icon name="arrow" width="15" height="15" />
+              Explore my favorites <Icon name="arrow" width="15" height="15" />
             </button>
           </div>
         </div>
@@ -86,7 +87,11 @@ export function Highlights({
       </div>
       <div className="reel-footer">
         <span>SCROLL SIDEWAYS TO EXPLORE</span>
-        <span>01 — 20</span>
+        <span>
+          {highlights.length
+            ? `01 — ${String(highlights.length).padStart(2, "0")}`
+            : "NEW FRAMES COMING SOON"}
+        </span>
       </div>
     </section>
   );

@@ -1,23 +1,19 @@
-# MARK. validation
+# Validation — shared gallery and selectable heroes
 
-31 October 2026
+- Photo library tests cover file additions/removals, new event discovery, folder
+  renumbering, stable photo IDs and highlight count changes.
+- Latest source import: 10 collections, 127 event photos, 15 highlights.
+- Actual first folders are competition then awards, matching the renamed folders.
+- TypeScript and production static export checked.
+- Orbit, Shatter and Flow render distinct scene geometry; Flow uses 3 rows.
+- Overview renders a photo-stack anchor card for each collection.
+- Every chapter uses the same borderless grid: 6 selected photos where available;
+  the competition folder contains only 4 real photos and shows all 4.
+- Desktop grid measured at 3 equal columns with identical 4:5 tiles and 0 borders.
+- Floating chapter selection updates the URL and highlights the current chapter.
+- Mobile mini index expands, selects a chapter and collapses after navigation.
+- Highlight copy has no fixed 20-photo promise; manifest and reel count agree.
 
-- TypeScript check and Next.js static build.
-- Import validates complete, duplicate-free curation for every folder.
-- 10 chapter groups: 127 photographs. Dedicated highlights: 20 photographs.
-- Browser confirms all chapter IDs in expected folder order.
-- Image computed styles contain no monochrome or color-grading filters.
-- Mirror pause and step controls update the orbit.
-- Pointer drag updates mirror positions without opening an accidental viewer.
-- White Shirt page 3 contains photographs 17–23 (7 tiles).
-- Last tile opens viewer at photograph 23 of 23.
-- Viewer jump control selects a frame directly; Previous wraps first to last.
-- 23 thumbnails are present and the selected thumbnail scrolls into view.
-- Escape closes dialog and restores the original page interaction.
-- Mobile navigation opens/closes and links to the requested chapter.
-- 375, 768, 1024, 1440 px layouts checked for horizontal overflow.
-- Contact destinations match the owner-provided Instagram and email.
-- Reduced-motion, hidden-tab and offscreen orbit behavior inspected in code.
-
-Desktop pointer drag was exercised; touch gestures are implemented but have not
-been exercised on physical mobile hardware. This is not a formal WCAG audit.
+Physical touch hardware has not been exercised. Original camera files are never
+modified by tests or imports. Further ongoing updates require build/publication
+for the hosted static website; local dev is watched automatically.

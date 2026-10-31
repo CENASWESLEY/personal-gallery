@@ -1,10 +1,9 @@
 # MARK. — Supavit Mungmalee / Mark Cenas
 
-เว็บไซต์แกลเลอรีส่วนตัว Next.js App Router + TypeScript
-ใช้ภาพสีต้นฉบับ 127 รูปจาก 10 คอลเลกชัน และ 20 รูปในโฟลเดอร์ `Hightlight`
-โครงเว็บเป็นขาว–ดำ แต่ไม่มีการเปลี่ยนสีภาพเป็น monochrome
+Next.js App Router + TypeScript personal photo archive.
+โครงเว็บขาว–ดำ ภาพทุกภาพเป็นสีต้นฉบับ พร้อม Gallery แบบเต็มจอ
 
-## เปิดโปรเจกต์
+## เริ่มต้น
 
 ```powershell
 cd D:\Photo\fragments
@@ -12,118 +11,118 @@ npm install
 npm run dev
 ```
 
-เปิด http://127.0.0.1:3000 ใช้ Node.js 20.9 ขึ้นไป
+เปิด http://127.0.0.1:3000 ใช้ Node.js 22 ขึ้นไปสำหรับ development และ tests
+`npm run dev` สแกนคลังภาพก่อนเปิด และติดตามการเปลี่ยนรูปในโฟลเดอร์ระหว่างทำงาน
 
 ```powershell
+npm test
 npm run typecheck
 npm run build
 ```
 
-Static export สร้างลง `out/` สำหรับ Sites หรือ static hosting อื่น
+Build จะสแกนรูปก่อนอัตโนมัติ แล้วสร้าง static website ลง `out/`
+เพิ่มรูปในเครื่องแล้วต้อง build และเผยแพร่ใหม่เพื่ออัปเดตเว็บออนไลน์
+เว็บที่เผยแพร่ไม่สามารถอ่านดิสก์ D: ของเครื่องผู้ชมโดยตรง
 
-## ข้อมูลที่รอเจ้าของเติม
+## อัปเดตรูปและคอลเลกชัน
 
-แก้ **`src/data/event-details.ts`** โดยใช้ collection ID:
+โฟลเดอร์รูปอยู่ที่ `D:\Photo` (ค่าเริ่มต้นคือโฟลเดอร์แม่ของโปรเจกต์)
+กำหนดตำแหน่งอื่นได้ด้วย environment variable `MARK_PHOTO_ROOT`
 
-```ts
-export const eventDetails = {
-  "cooperative-awards": {
-    eventName: "ชื่อเหตุการณ์จริง",
-    location: "ชื่อสถานที่",
-    date: "วัน เดือน ปี",
-    time: "เวลา",
-    story: "รายละเอียดของเหตุการณ์",
-    outfit: "รายละเอียดชุดที่ต้องการแสดง",
-  },
-};
-```
+- เพิ่ม/ลบรูปใน `Hightlight` ได้โดยไม่ต้องแก้จำนวนในโค้ด
+- รองรับชื่อโฟลเดอร์ Highlight, Highlights, Hightlight หรือ Hightlights
+- โฟลเดอร์ Event ขึ้นต้นด้วยเลข เช่น `10.New Event` จะถูกค้นพบอัตโนมัติ
+- เปลี่ยนเลขหน้าโฟลเดอร์เพื่อเรียง timeline ใหม่ได้
+- รองรับ JPG, JPEG, PNG, WebP และ AVIF
+- จำนวนรูป, Overview, sidebar, Highlight และ viewer อ้างข้อมูลเดียวกัน
+- ไฟล์ใหม่จะถูกเพิ่มท้ายลำดับภาพที่คัดไว้ โดยไม่ทำให้ ID รูปเดิมเปลี่ยน
+- ลบรูปแล้ว reference ในเว็บจะหายตามเมื่อ sync; รูปต้นฉบับอื่นไม่ถูกแก้
 
-ยังไม่มีการเดาวันเวลา/สถานที่จากรูป ป้ายสถานที่และวันเวลาจะแสดงรอระบุ
-ชื่อคอลเลกชันปัจจุบันอิงชื่อโฟลเดอร์ ส่วนรายละเอียดชุดอิงสิ่งที่เห็นในภาพ
-
-| ลำดับ | Collection ID           | โฟลเดอร์             | จำนวน | รูปแบบนำเสนอ  |
-| ----- | ----------------------- | -------------------- | ----: | ------------- |
-| 01    | cooperative-awards      | 1.รับรางวัลสหกิจ     |     6 | Editorial     |
-| 02    | cooperative-competition | 2.ประกวดสหกิจ        |     4 | Stage         |
-| 03    | graduation              | 3.รับปริญญา          |    20 | Filmstrip     |
-| 04    | black-suit              | 4.สูทดำ              |    13 | Noir          |
-| 05    | white-suit              | 5.สูทขาว             |     9 | Diptych       |
-| 06    | bkk-challenge           | 6.BKK challenge      |     9 | Panorama      |
-| 07    | coeidol                 | 6.COEIDOL            |    14 | Mosaic        |
-| 08    | cafe-bkk-challenge      | 7.Cafe BKK Challenge |     6 | Cinema        |
-| 09    | white-shirt             | 8.White Shirt        |    23 | Lookbook      |
-| 10    | blue-shirt              | 9.Blue Shirt         |    23 | Contact sheet |
-
-เลข 6 ซ้ำสองโฟลเดอร์ จึงรักษาลำดับชื่อ BKK challenge ก่อน COEIDOL
-การเรียง timeline ใช้ลำดับโฟลเดอร์ ส่วนการเรียงภาพในแต่ละชุดคัดจาก
-ความชัดเจนของใบหน้า ท่าโพส และองค์ประกอบภาพ เป็น editorial choice ที่แก้ได้
-
-## โครงสร้างไฟล์
-
-```text
-src/
-  app/                 Entry point, metadata, favicon, CSS imports
-  components/
-    hero/              MirrorOrbit, Hero
-    collections/       Highlights, Collections, CollectionArchive, PhotoTile
-    viewer/            PhotoViewer — zoom, slideshow, jump-to-frame
-    about/             ชื่อจริง ที่มาชื่อ Mark Cenas และ contact
-    layout/            Header และ mobile menu
-    ui/                SVG icons
-  data/
-    gallery.ts         Identity, contact และประกอบข้อมูลแต่ละชุด
-    curation.json      ลำดับโฟลเดอร์/ภาพและรูปแบบ layout
-    event-details.ts   ข้อมูลเหตุการณ์จริงที่รอเติม
-    photographs.json   Asset manifest ที่สร้างอัตโนมัติ
-  hooks/               useMirrorOrbit และ useReveal
-  styles/              แยก CSS ตาม feature และ responsive overrides
-  types/               Domain interfaces พร้อม TSDoc
-public/
-  archive/             ภาพ WebP และ thumbnails สีต้นฉบับ
-  images/              Hero cutout และโลโก้ที่เจ้าของให้
-  fonts/               Local fonts พร้อม OFL licenses
-scripts/
-  prepare-images.mjs   Import/optimize จากโฟลเดอร์รูปเดิม
-```
-
-## เปลี่ยนรูปและลำดับภาพ
-
-`src/data/curation.json` กำหนดโฟลเดอร์, ชื่อเริ่มต้น, ชุด, layout, ลำดับภาพ
-ตัวเลขใน `order` อ้างตำแหน่ง 1-based ของไฟล์ที่เรียงชื่อตามตัวอักษร
-ต้องใส่ทุกภาพครั้งเดียว สคริปต์ตรวจความครบถ้วนก่อน import
+หากต้องการ sync แยกจาก dev/build:
 
 ```powershell
 npm run prepare:images
 ```
 
-สคริปต์อ่านต้นฉบับจากโฟลเดอร์แม่ (`D:\Photo`) ไม่แก้ไฟล์เดิม
-รูปที่เผยแพร่ถูกย่อเป็น WebP พร้อมลบ EXIF และคงสีเดิม
-หลังเปลี่ยน order ต้องรันสคริปต์ใหม่เพื่อสร้าง manifest ให้ตรงกัน
+สคริปต์สร้าง WebP และ thumbnail พร้อมลบ EXIF โดยรักษาสีเดิม
+มี cache เพื่อไม่ต้องประมวลผลไฟล์ที่ไม่เปลี่ยนซ้ำ
+หาก build จาก checkout ที่ไม่มีโฟลเดอร์ต้นฉบับ จะใช้ manifest และ assets
+ที่ commit ไว้สำหรับ deployment เดิม
 
-## การดูภาพจำนวนมาก
+## คัดภาพเด่นและรายละเอียด Event
 
-- Global Highlight reel แสดงครบ 20 ภาพและเปิด viewer ได้
-- ทุกคอลเลกชันมี Chapter Highlights ก่อนส่วนภาพทั้งหมด
-- ปุ่มดูทั้งหมดเปิดกริดครั้งละ 8 ภาพ มีเลขหน้าและจำนวนภาพชัดเจน
-- Viewer มี dropdown เลือกภาพโดยตรง, thumbnail ที่เลื่อนได้,
-  ปุ่มก่อนหน้า/ถัดไป, keyboard arrows, zoom และ slideshow
-- ภาพย่อที่เลือกจะเลื่อนเข้ามาในพื้นที่ที่มองเห็น รวมถึงหลัง resize
-- Escape ปิด viewer และคืน focus ให้ปุ่มเดิม
+`src/data/curation.json` เก็บชื่อ/คำบรรยาย/ลุค และ `preferredFiles`
+ซึ่งเป็นรายชื่อไฟล์จริงตามลำดับที่อยากให้เด่นก่อน ไม่มีเลข index ที่เลื่อน
+เมื่อเพิ่มไฟล์ใหม่ รายชื่อที่ถูกลบจะถูกข้าม ส่วนรูปใหม่ที่เหลือถูกเพิ่มอัตโนมัติ
 
-## วงกระจกหน้าแรก
+`src/data/event-details.ts` เก็บข้อมูลเหตุการณ์ที่ยืนยันจากเจ้าของ:
 
-1 ชิ้นกระจก = 1 รูปจากแต่ละคอลเลกชัน ต่างจากภาพเดียวที่ถูกซอยเป็นหลายชิ้น
-มีวงโคจรอัตโนมัติ, drag, ปุ่มหมุนทีละช่วง, pause/play และปุ่มเปิด Gallery
-หยุดเคลื่อนไหวเมื่อ hover/focus, อยู่นอกจอ หรือ browser ถูกซ่อน
-เมื่อระบบตั้ง reduced motion จะเริ่มต้นเป็นหยุดหมุน
-ภาพกลางเป็น cutout เตรียมจากภาพสูทดำ ดู provenance ใน `docs/asset-notes.md`
+```ts
+export const eventDetails = {
+  "cooperative-awards": {
+    eventName: "ชื่อ Event",
+    location: "สถานที่",
+    date: "วัน เดือน ปี",
+    time: "เวลา",
+    story: "รายละเอียดเหตุการณ์",
+    outfit: "รายละเอียดการแต่งตัว",
+  },
+};
+```
 
-## Theme และ contact
+ยังไม่เดาข้อมูลสถานที่หรือวันเวลา เมื่อไม่มีข้อมูลจะแสดง “รอระบุ”
+เปลี่ยนข้อมูลส่วนตัวและ contact ที่ `src/data/gallery.ts`
 
-แก้ข้อมูลส่วนตัวที่ `profile` ใน `src/data/gallery.ts`
-Instagram: `supavit_mu` / Email: `supavit.mu@gmail.com`
-Theme บันทึกด้วย key `mark-theme` และมี fallback หาก storage ไม่พร้อม
-ฟอนต์เป็น local assets ไม่มี external font CDN
+## หน้าแรก 3 สไตล์
 
-ลิงก์ Sites เดิมคงอยู่เพื่อรักษา project/access เดิม แต่ชื่อเว็บไซต์และ
-metadata เปลี่ยนเป็น MARK. แล้ว การเผยแพร่ยังเป็น private ของเจ้าของบัญชี
+1. **Orbit** — กระจกวิ่งวน ลากหมุนได้
+2. **Shatter** — กระจกออกจากด้านหลังของแบบแล้วแตกกระจายขึ้น มี Replay
+3. **Flow** — กระจก 3 แถว แถว 1/3 ไปขวา แถว 2 ไปซ้าย
+
+เลือกจากปุ่มใต้ชื่อหน้าแรก ระบบจำตัวเลือกใน browser ด้วย `mark-hero-style`
+ทุกแบบมี pause/play, ปุ่มขยับ และเปิด Gallery จากชิ้นกระจกได้
+เคารพ reduced motion และหยุดอัปเดตภาพเมื่ออยู่นอกจอหรือแท็บถูกซ่อน
+
+## การนำเสนอคอลเลกชัน
+
+- Overview เป็นการ์ดชุดภาพซ้อน กดแล้วเลื่อนไปยัง Event
+- ทุก Event ใช้ `CollectionSection` และ `FeaturedPhotoGrid` ร่วมกัน
+- ภาพเด่นสูงสุด 6 ภาพขนาดเท่ากัน ไม่มีกรอบ
+- Desktop: 3 คอลัมน์ × 2 แถว / Mobile: 2 คอลัมน์ × 3 แถว
+- หากต้นฉบับมีไม่ถึง 6 รูป จะแสดงเฉพาะรูปจริงโดยไม่ทำภาพซ้ำ
+- กริดภาพทั้งหมดแบ่งหน้า และ viewer เลือกข้ามไปภาพใดก็ได้
+- Floating navigation ด้านซ้ายแสดงเลข/ชื่อ/ชุดปัจจุบันและกลับ Overview
+- Mobile แสดงเป็นปุ่มลอยเล็ก เปิดเป็นเมนูที่เลื่อนได้ รองรับคลังขนาดใหญ่
+
+## โครงสร้างสำคัญ
+
+```text
+scripts/
+  dev.mjs                    Local preview + source-folder watcher
+  prepare-images.mjs         Build-time photo sync entry point
+  lib/photo-library.mjs      Discovery, stable IDs, optimization, cache
+src/
+  components/
+    hero/                    Style picker + shared mirror scene
+    collections/
+      CollectionOverview     Photo folder directory
+      CollectionSection      Shared chapter structure
+      FeaturedPhotoGrid      Shared borderless six-photo grid
+      CollectionArchive      Paginated complete archive
+      Highlights             Dynamic favorites reel
+    layout/
+      CollectionNavigation   Floating desktop/mobile chapter index
+    viewer/                  Full-screen gallery
+  data/
+    photographs.json         Generated manifest; do not edit directly
+    curation.json            Preferred filenames and editorial metadata
+    event-details.ts         Confirmed facts
+  lib/mirror-layout.ts       Testable geometry for all 3 hero modes
+  hooks/useMirrorOrbit.ts    Pointer/playback lifecycle
+  styles/                    Feature CSS and shared library styles
+tests/                       Library growth/ID and choreography checks
+```
+
+ภาพ Hero แยกพื้นหลังเตรียมไว้แล้ว ดู provenance ใน `docs/asset-notes.md`
+ข้อมูล Event ที่รอเติมอยู่ใน `docs/event-details-template.md`
+Sites ใช้ project และ audience ส่วนตัวเดิม

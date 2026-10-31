@@ -1,4 +1,4 @@
-import { profile, highlights } from "@/data/gallery";
+import { profile, highlights, heroPortrait } from "@/data/gallery";
 import { Icon } from "@/components/ui/Icon";
 import type { ViewerSelection } from "@/types/gallery";
 
@@ -8,21 +8,21 @@ export function About({
 }: {
   onOpen: (selection: ViewerSelection) => void;
 }) {
+  const aboutPhoto = highlights[3] ?? highlights[0] ?? heroPortrait;
   return (
     <>
       <section id="about" className="about section-padding">
         <div className="about-portrait" data-reveal>
           <button
             onClick={() =>
-              onOpen({ collectionId: "highlights", photoIndex: 3 })
+              onOpen({
+                collectionId: highlights.length ? "highlights" : "black-suit",
+                photoIndex: highlights.length > 3 ? 3 : 0,
+              })
             }
             aria-label="Open Mark's portrait"
           >
-            <img
-              src={highlights[3].src}
-              alt={highlights[3].alt}
-              loading="lazy"
-            />
+            <img src={aboutPhoto.src} alt={aboutPhoto.alt} loading="lazy" />
             <span>
               THE PERSON BEHIND THE FRAMES{" "}
               <Icon name="expand" width="16" height="16" />

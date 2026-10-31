@@ -1,40 +1,49 @@
 # MARK. architecture
 
-## Content boundaries
+## Filesystem → content manifest
 
-`curation.json` แยกการคัดภาพและ presentation layout ออกจากข้อมูลเหตุการณ์จริง
-`event-details.ts` เก็บเฉพาะรายละเอียดที่ยืนยันจากเจ้าของได้
-`prepare-images.mjs` อ่านโฟลเดอร์, ตรวจ order ครบทุกภาพ และสร้าง
-`photographs.json` พร้อม asset URLs, dimensions และ source filename
-`gallery.ts` ประกอบข้อมูลเป็น domain types สำหรับ UI
+`syncPhotoLibrary` discovers numbered source folders on each dev/build invocation.
+Folder numeric prefixes determine chronology. Curated filenames determine the
+internal image order, followed by all newly discovered files. Folder renumbering
+matches the existing identity by its non-numeric name. Existing source filenames
+retain their prior image IDs, while new IDs are based on collection and filename.
 
-ไม่มีการใช้ EXIF หรือเวลาแก้ไขไฟล์มาแต่งข้อมูลเหตุการณ์
-ลำดับโฟลเดอร์คือ timeline; ลำดับภาพในโฟลเดอร์คือ editorial curation
+Highlights are scanned independently without a fixed count or curated index list.
+Generated manifests include complete file metadata; image transforms are cached
+by file size, modification time and processing version. No dates/places are
+inferred from filesystem timestamps or image backgrounds.
 
-## State ownership
+The dev launcher watches the source root for folder changes and the actual image
+directories for image changes. Imports are debounced/serialized, and the manifest
+is written only when content changes, allowing Next.js to refresh the page.
+Static production requires a new build/deployment after local photo changes.
 
-- `GalleryExperience`: shared viewer selection และ theme
-- `useMirrorOrbit`: rotation, drag gesture และ playback lifecycle
-- `CollectionArchive`: expanded state และเลขหน้าของแต่ละชุดอย่างอิสระ
-- `PhotoViewer`: image index, zoom และ slideshow ภายใน native dialog
+## Shared presentation
 
-วงกระจกใช้ refs และ CSS transforms เพื่อหลีกเลี่ยง React render ทุกเฟรม
-CSS clip-path ให้แต่ละชิ้นมีรูปตัวเองและขอบสะท้อน ใช้ WebGL ไม่จำเป็น
-ResizeObserver คำนวณวงโคจรใหม่ให้ตรงขนาดจอ
-IntersectionObserver และ document visibility ป้องกันการอัปเดตตำแหน่งนอกจอ
+`CollectionOverview` renders photo-stack anchor cards. `CollectionSection` uses
+the same `FeaturedPhotoGrid` and `CollectionArchive` for every event. The featured
+grid contains up to six distinct images at the same aspect ratio, without image
+frames. Counts and section navigation are derived from the generated collection
+list. Empty event folders are excluded from presentation until images are added.
 
-## Access to every image
+`CollectionNavigation` derives the current chapter from scroll position. It keeps
+Overview and every chapter reachable from the desktop rail or mobile floating
+menu. Its long link list scrolls independently; native anchor history is retained.
 
-ภาพนำเป็นเพียง curated preview ไม่ใช่ archive ทั้งหมด
-แต่ละชุดมีกริด 8 ภาพต่อหน้า และ viewer ที่ jump ไปภาพใดก็ได้
-thumbnail ใช้ overflow scroll และ scroll selected item into view
-ResizeObserver รักษา active thumbnail ให้อยู่ในจอเมื่อหมุน/resize อุปกรณ์
+## Hero choreography
 
-## Styling and delivery
+The existing scene uses the same portrait, glass component and controls for all
+three modes. `mirrorTransform` defines pure orbit, rising-fragment and alternating
+row geometries. `useMirrorOrbit` applies transforms through refs without a React
+render per frame, sharing phase across drag, playback and step controls.
 
-`src/styles/` แยก base, hero, collections, about, viewer และ responsive
-chapter แต่ละชุดใช้ modifier class ของตัวเองเพื่อเปลี่ยน composition
-CSS ไม่มี grayscale หรือ color grading สำหรับรูปภาพ
-Native dialog จัดการ focus containment และ Escape; cleanup คืน focus/scroll
-Next.js static export ทำให้ไม่ต้องมี backend หรือ secrets
-ภาพ optimize ก่อน deploy และ EXIF ถูกลบจากไฟล์ที่สร้าง
+The picker persists browser preference. Reduced motion produces static geometry;
+autoplay respects hover/focus, offscreen state and document visibility. Each glass
+item keeps an accessible gallery button, including repeated items in Flow rows.
+
+## State and delivery
+
+`GalleryExperience` owns the shared viewer and theme. Native dialog retains focus
+containment; active thumbnails scroll into view after selection and resize.
+Source originals are untouched. Exported images preserve color and strip EXIF.
+The deployed site needs no backend credentials or connection to the owner's disk.

@@ -6,12 +6,14 @@ import {
   useState,
   type PointerEvent,
 } from "react";
+import { mirrorTransform } from "@/lib/mirror-layout";
+import type { HeroMode } from "@/types/hero";
 
 /**
  * Runs a frame-budgeted elliptical mirror orbit without React rerenders.
  * Pointer drags share the same rotation state as autoplay and step controls.
  */
-export function useMirrorOrbit(count: number) {
+export function useMirrorOrbit(count: number, mode: HeroMode = "orbit") {
   const stage = useRef<HTMLDivElement>(null);
   const rotation = useRef(0);
   const drag = useRef<{ x: number; angle: number; moved: boolean } | null>(
@@ -19,32 +21,38 @@ export function useMirrorOrbit(count: number) {
   );
   const suppressClick = useRef(false);
   const hovering = useRef(false);
+  const reduced = useRef(false);
   const [playing, setPlaying] = useState(true);
   const paint = useCallback(() => {
     const element = stage.current;
     if (!element) return;
     const width = element.clientWidth;
-    const radiusX = Math.min(width * 0.405, 600);
-    const radiusY = width < 600 ? 145 : 175;
     element
       .querySelectorAll<HTMLElement>(".orbit-shard")
       .forEach((shard, index) => {
-        const angle =
-          (((index / count) * 360 + rotation.current) * Math.PI) / 180;
-        shard.style.setProperty("--x", `${Math.sin(angle) * radiusX}px`);
-        shard.style.setProperty("--y", `${Math.cos(angle) * radiusY}px`);
-        shard.style.setProperty("--rotation", `${Math.sin(angle) * 19}deg`);
-        shard.style.setProperty(
-          "--scale",
-          `${0.81 + (Math.cos(angle) + 1) * 0.12}`,
+        const transform = mirrorTransform(
+          mode,
+          index,
+          count,
+          rotation.current,
+          width,
+          reduced.current,
         );
-        shard.style.zIndex = String(Math.round((Math.cos(angle) + 1) * 4) + 1);
+        shard.style.setProperty("--x", `${transform.x}px`);
+        shard.style.setProperty("--y", `${transform.y}px`);
+        shard.style.setProperty("--rotation", `${transform.rotation}deg`);
+        shard.style.setProperty("--scale", String(transform.scale));
+        shard.style.opacity = String(transform.opacity);
+        shard.style.zIndex = String(transform.z);
       });
-  }, [count]);
+    element.dataset.ready = "true";
+  }, [count, mode]);
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const change = () => {
+      reduced.current = preference.matches;
       if (preference.matches) setPlaying(false);
+      paint();
     };
     change();
     preference.addEventListener("change", change);
@@ -92,9 +100,14 @@ export function useMirrorOrbit(count: number) {
       rotation.current += direction * 24;
       paint();
     },
+    replay: () => {
+      rotation.current = 0;
+      paint();
+      setPlaying(!reduced.current);
+    },
     handlers: {
-      onPointerEnter: () => {
-        hovering.current = true;
+      onPointerEnter: (event: PointerEvent<HTMLDivElement>) => {
+        hovering.current = event.pointerType === "mouse";
       },
       onPointerLeave: () => {
         hovering.current = false;

@@ -2,10 +2,13 @@
   "name": "fragments-gallery",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1",
+    "dev": "node scripts/dev.mjs",
+    "prebuild": "node scripts/prepare-images.mjs",
     "build": "next build",
     "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "prepare:images": "node scripts/prepare-images.mjs"
   },
   "dependencies": {

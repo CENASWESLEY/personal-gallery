@@ -40,28 +40,11 @@
   .highlight-slide {
     flex-basis: 31%;
   }
-  .chapter-composition {
-    gap: 20px;
-  }
   .chapter-heading h3 {
     font-size: 36px;
   }
   .chapter-topline {
     font-size: 7px;
-  }
-  .chapter-noir .chapter-heading h3,
-  .chapter-lookbook .chapter-heading h3 {
-    font-size: 50px;
-  }
-  .layout-noir {
-    height: 540px;
-  }
-  .layout-lookbook {
-    height: 500px;
-    gap: 25px;
-  }
-  .layout-contact {
-    height: 550px;
   }
   .about {
     gap: 8%;
@@ -197,10 +180,6 @@
   .reel-controls .text-link {
     font-size: 10px;
   }
-  .chapter-index a {
-    font-size: 9px;
-    padding-inline: 11px;
-  }
   .chapter-topline > span:last-child {
     display: none;
   }
@@ -222,47 +201,6 @@
   }
   .event-details dt {
     font-size: 6px;
-  }
-  .layout-editorial {
-    height: 460px;
-  }
-  .layout-stage {
-    height: 340px;
-    gap: 14px;
-  }
-  .chapter-filmstrip .chapter-composition {
-    height: 390px;
-    gap: 20px;
-    padding-inline: 15px;
-  }
-  .layout-noir {
-    height: 440px;
-    gap: 20px;
-  }
-  .layout-diptych {
-    height: 460px;
-    gap: 5%;
-  }
-  .layout-panorama {
-    height: 360px;
-    gap: 12px;
-  }
-  .layout-mosaic {
-    height: 480px;
-  }
-  .layout-cinema {
-    height: 380px;
-  }
-  .layout-lookbook {
-    height: 440px;
-    gap: 20px;
-  }
-  .layout-contact {
-    height: 480px;
-    gap: 14px;
-  }
-  .chapter-cinema .chapter-heading h3 {
-    font-size: 40px;
   }
   .archive-bar > span {
     font-size: 7px;
@@ -513,21 +451,6 @@
     padding-top: 30px;
     padding-bottom: 33px;
   }
-  .chapter-index {
-    gap: 6px;
-    padding-top: 20px;
-    max-height: 225px;
-    overflow: auto;
-  }
-  .chapter-index a {
-    font-size: 9px;
-    min-height: 40px;
-    padding: 9px 10px;
-    gap: 7px;
-  }
-  .chapter-index a > span {
-    font-size: 6px;
-  }
   .chapter {
     padding-top: 23px;
     padding-bottom: 30px;
@@ -586,9 +509,6 @@
   .event-details dd.pending {
     font-size: 9px;
   }
-  .chapter-composition {
-    gap: 12px;
-  }
   .tile-index {
     font-size: 7px;
     top: 11px;
@@ -600,161 +520,6 @@
   }
   .tile-open svg {
     width: 14px;
-  }
-  .layout-editorial {
-    height: 460px;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 12px;
-  }
-  .layout-editorial .photo-tile:first-child {
-    grid-row: 1/-1;
-  }
-  .layout-editorial .photo-tile:first-child img {
-    object-position: 50% 40%;
-  }
-  .layout-editorial .photo-tile:not(:first-child) img {
-    object-fit: cover;
-  }
-  .layout-stage {
-    height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 260px 180px;
-    gap: 12px;
-    align-items: stretch;
-  }
-  .layout-stage .photo-tile:first-child {
-    grid-column: span 2;
-  }
-  .layout-stage .photo-tile:not(:first-child) {
-    height: 100%;
-    transform: none;
-  }
-  .chapter-filmstrip .chapter-composition {
-    height: 340px;
-    gap: 10px;
-    padding: 22px 12px 27px;
-    overflow: auto;
-    grid-template-columns: repeat(3, 190px);
-    scroll-snap-type: x mandatory;
-  }
-  .layout-filmstrip .photo-tile {
-    scroll-snap-align: start;
-  }
-  .layout-filmstrip:before,
-  .layout-filmstrip:after {
-    left: 12px;
-    right: 12px;
-    height: 5px;
-  }
-  .layout-noir {
-    height: 470px;
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 15px;
-  }
-  .layout-noir .photo-tile:first-child {
-    grid-row: span 2;
-  }
-  .layout-noir .photo-tile:nth-child(2),
-  .layout-noir .photo-tile:nth-child(3) {
-    height: 100%;
-    align-self: stretch;
-  }
-  .chapter-noir .chapter-heading h3 {
-    font-size: 40px;
-  }
-  .layout-diptych {
-    height: 350px;
-    gap: 14px;
-  }
-  .chapter-diptych .chapter-heading {
-    justify-content: flex-start;
-  }
-  .chapter-diptych .chapter-heading > div {
-    text-align: left;
-  }
-  .chapter-diptych .chapter-big-number {
-    font-size: 51px;
-  }
-  .chapter-diptych .chapter-frame-count {
-    position: static;
-  }
-  .layout-panorama {
-    height: 440px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 260px 168px;
-    gap: 12px;
-  }
-  .layout-panorama .photo-tile:first-child {
-    grid-column: span 2;
-    border-width: 8px;
-  }
-  .layout-panorama .photo-tile:first-child img {
-    object-position: 50% 37%;
-  }
-  .layout-panorama .photo-tile:nth-child(3) {
-    height: 100%;
-    margin: 0;
-  }
-  .layout-mosaic {
-    height: 540px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 260px 134px 134px;
-    gap: 6px;
-  }
-  .layout-mosaic .photo-tile:first-child {
-    grid-column: span 2;
-    grid-row: 1;
-  }
-  .layout-cinema {
-    height: 460px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 14px;
-    padding: 10px 0;
-  }
-  .layout-cinema .photo-tile:first-child {
-    grid-row: span 2;
-    height: 100%;
-  }
-  .layout-cinema .photo-tile:nth-child(2),
-  .layout-cinema .photo-tile:nth-child(3) {
-    height: 100%;
-    transform: none;
-  }
-  .chapter-cinema .chapter-heading h3 {
-    font-size: 29px;
-    max-width: 200px;
-  }
-  .layout-lookbook {
-    height: 450px;
-    gap: 14px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .layout-lookbook .photo-tile:first-child {
-    grid-row: span 2;
-  }
-  .layout-lookbook .photo-tile:nth-child(2),
-  .layout-lookbook .photo-tile:nth-child(3) {
-    height: 100%;
-    align-self: stretch;
-  }
-  .chapter-lookbook .chapter-heading h3 {
-    font-size: 34px;
-  }
-  .layout-contact {
-    height: 570px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 280px 133px 133px;
-    gap: 12px;
-  }
-  .layout-contact .photo-tile:first-child {
-    grid-column: span 2;
-    grid-row: 1;
-  }
-  .layout-contact .photo-tile:not(:first-child) {
-    border-width: 5px;
   }
   .collection-archive {
     margin-top: 20px;

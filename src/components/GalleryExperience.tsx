@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Header } from "./layout/Header";
+import { CollectionNavigation } from "./layout/CollectionNavigation";
 import { Hero } from "./hero/Hero";
 import { Collections } from "./collections/Collections";
 import { Highlights } from "./collections/Highlights";
@@ -76,6 +77,7 @@ export function GalleryExperience() {
         <Collections onOpen={setSelection} />
         <About onOpen={setSelection} />
       </main>
+      <CollectionNavigation />
       {selection && (
         <PhotoViewer
           key={selection.collectionId}

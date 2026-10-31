@@ -1,5 +1,8 @@
+"use client";
+import { useEffect, useState } from "react";
 import { MirrorOrbit } from "./MirrorOrbit";
 import type { ViewerSelection } from "@/types/gallery";
+import type { HeroMode } from "@/types/hero";
 
 /** Identity-led entrance to Mark's chronological visual autobiography. */
 export function Hero({
@@ -7,6 +10,24 @@ export function Hero({
 }: {
   onOpen: (selection: ViewerSelection) => void;
 }) {
+  const [mode, setMode] = useState<HeroMode>("orbit");
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("mark-hero-style");
+      if (saved === "orbit" || saved === "shatter" || saved === "rows")
+        setMode(saved);
+    } catch {
+      /* Scene selection works without persistent storage. */
+    }
+  }, []);
+  const choose = (next: HeroMode) => {
+    setMode(next);
+    try {
+      localStorage.setItem("mark-hero-style", next);
+    } catch {
+      /* Optional persistence. */
+    }
+  };
   return (
     <section id="home" className="hero" aria-labelledby="hero-title">
       <div className="hero-intro">
@@ -27,7 +48,41 @@ export function Hero({
           </span>
         </p>
       </div>
-      <MirrorOrbit onOpen={onOpen} />
+      <div className="hero-style-picker" aria-label="Choose homepage style">
+        {(
+          [
+            {
+              id: "orbit",
+              number: "01",
+              name: "Orbit",
+              caption: "กระจกวิ่งวน",
+            },
+            {
+              id: "shatter",
+              number: "02",
+              name: "Shatter",
+              caption: "แตกแล้วลอยขึ้น",
+            },
+            {
+              id: "rows",
+              number: "03",
+              name: "Flow",
+              caption: "สามแถวสลับทิศ",
+            },
+          ] as const
+        ).map((style) => (
+          <button
+            key={style.id}
+            aria-pressed={mode === style.id}
+            onClick={() => choose(style.id)}
+          >
+            <span>{style.number}</span>
+            <strong>{style.name}</strong>
+            <small lang="th">{style.caption}</small>
+          </button>
+        ))}
+      </div>
+      <MirrorOrbit key={mode} mode={mode} onOpen={onOpen} />
     </section>
   );
 }
