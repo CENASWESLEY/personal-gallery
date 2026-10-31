@@ -1,0 +1,327 @@
+/* Intro and kinetic mirror sculpture */
+.hero {
+  overflow: hidden;
+}
+.hero-intro {
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+.hero-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0 34px;
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  color: var(--muted);
+}
+.hero-topline > span:first-child {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.hero-topline i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 4px var(--soft);
+}
+.hero-overline {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  margin-bottom: 13px;
+}
+.hero h1 {
+  font-size: clamp(37px, 5vw, 82px);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1.05;
+}
+.hero h1 .serif {
+  margin-left: 0.1em;
+}
+.selection-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+.hero-identity {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 1.9;
+}
+.hero-identity strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.hero-identity > span {
+  margin-left: 12px;
+}
+.mirror-experience {
+  margin-top: 20px;
+}
+.orbit-stage {
+  height: 610px;
+  max-width: 1600px;
+  margin: auto;
+  position: relative;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+  isolation: isolate;
+}
+.orbit-stage:active {
+  cursor: grabbing;
+}
+.orbit-wordmark {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(140px, 23vw, 360px);
+  font-weight: 850;
+  letter-spacing: -0.09em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line);
+  pointer-events: none;
+  z-index: 0;
+}
+.orbit-guide {
+  position: absolute;
+  width: 77%;
+  height: 290px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  left: 11.5%;
+  top: 23%;
+  opacity: 0.6;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+.orbit-guide:after {
+  content: "";
+  position: absolute;
+  inset: -24px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+.orbit-shard {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: clamp(120px, 13.2vw, 205px);
+  height: clamp(160px, 17vw, 260px);
+  padding: 0;
+  transform: translate(calc(var(--x, 0px) - 50%), calc(var(--y, 0px) - 50%))
+    rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+  filter: drop-shadow(0 9px 10px #0002);
+  will-change: transform;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+.shard-face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #c9d0d1;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 24%, 48% 100%, 8% 76%);
+}
+.shard-shape-1 .shard-face {
+  clip-path: polygon(30% 0, 100% 34%, 74% 100%, 0 88%);
+}
+.shard-shape-2 .shard-face {
+  clip-path: polygon(0 16%, 91% 0, 100% 84%, 42% 100%);
+}
+.shard-shape-3 .shard-face {
+  clip-path: polygon(20% 0, 100% 44%, 64% 100%, 0 71%);
+}
+.shard-shape-4 .shard-face {
+  clip-path: polygon(0 0, 96% 20%, 65% 100%, 15% 84%);
+}
+.shard-face:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    #ffffffd9,
+    #b1c9cc77 28%,
+    #fff9 45%,
+    #959fa8 75%,
+    #fff
+  );
+  z-index: 0;
+}
+.shard-face img {
+  position: absolute;
+  inset: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  object-fit: cover;
+  object-position: 50% 35%;
+  clip-path: inherit;
+  transition: transform 0.6s var(--ease);
+}
+.shard-glint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    #fff4 0,
+    transparent 30%,
+    transparent 55%,
+    #fff3 57%,
+    transparent 59%,
+    #d2e9f233
+  );
+  pointer-events: none;
+  box-shadow: inset 0 0 22px #fff4;
+}
+.orbit-shard:hover {
+  filter: drop-shadow(0 12px 17px #0004);
+}
+.orbit-shard:hover img {
+  transform: scale(1.06);
+}
+.shard-number {
+  position: absolute;
+  bottom: 20%;
+  left: 18%;
+  color: white;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-shadow: 0 1px 5px #000;
+}
+.hero-person {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  height: 555px;
+  width: 370px;
+  z-index: 20;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: none;
+}
+.hero-person img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: auto;
+  filter: drop-shadow(0 10px 12px #0002);
+}
+.person-hint {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  padding: 12px 15px;
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: auto;
+}
+.hero-person:hover .person-hint,
+.hero-person:focus-visible .person-hint {
+  opacity: 1;
+}
+.stage-coordinate {
+  position: absolute;
+  bottom: 20px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  z-index: 25;
+  pointer-events: none;
+}
+.coordinate-left {
+  left: var(--gutter);
+}
+.coordinate-right {
+  right: var(--gutter);
+  text-align: right;
+}
+.orbit-controls {
+  margin-inline: var(--gutter);
+  border-top: 1px solid var(--line);
+  padding: 13px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.orbit-controls > span,
+.orbit-controls > a {
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.orbit-controls > a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 44px;
+}
+.orbit-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.orbit-play {
+  min-height: 44px;
+  padding: 0 13px;
+  font-size: 10px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.marquee {
+  background: #191919;
+  color: #f5f4f0;
+  padding: 19px 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+.marquee-track > span {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding-right: 40px;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.marquee-outline {
+  color: transparent;
+  -webkit-text-stroke: 0.7px #f5f4f0;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,108 +1,136 @@
 "use client";
-
-import { useState } from "react";
 import { collections, totalPhotos } from "@/data/gallery";
-import { Icon } from "@/components/ui/Icon";
-import { CollectionCard } from "./CollectionCard";
+import { PhotoTile } from "./PhotoTile";
+import { CollectionArchive } from "./CollectionArchive";
 import { useReveal } from "@/hooks/useReveal";
-import type { ViewerSelection } from "@/types/gallery";
+import type { Collection, ViewerSelection } from "@/types/gallery";
 
-const filters = ["All collections", "Daylight", "After hours"] as const;
+/** Honest placeholders separate confirmed clothing from pending event facts. */
+function EventMetadata({ collection }: { collection: Collection }) {
+  const detail = collection.details;
+  return (
+    <div className="event-details">
+      <dl>
+        <div>
+          <dt>สถานที่ / PLACE</dt>
+          <dd className={!detail.location ? "pending" : ""}>
+            {detail.location || "รอระบุสถานที่"}
+          </dd>
+        </div>
+        <div>
+          <dt>วัน & เวลา / WHEN</dt>
+          <dd className={!detail.date ? "pending" : ""}>
+            {[detail.date, detail.time].filter(Boolean).join(" · ") ||
+              "รอระบุวันและเวลา"}
+          </dd>
+        </div>
+        <div>
+          <dt>สไตล์ / THE LOOK</dt>
+          <dd>{detail.outfit}</dd>
+        </div>
+      </dl>
+      {detail.story && <p className="event-story">{detail.story}</p>}
+    </div>
+  );
+}
 
-/** Filterable exhibition index. Layout preference is independent of filtering. */
+/** Ten ordered chapters use distinct layout compositions and complete archives. */
 export function Collections({
   onOpen,
 }: {
   onOpen: (selection: ViewerSelection) => void;
 }) {
-  const [filter, setFilter] =
-    useState<(typeof filters)[number]>("All collections");
-  const [layout, setLayout] = useState<"grid" | "list">("grid");
-  const visible = collections.filter(
-    (collection) =>
-      filter === "All collections" || collection.category === filter,
-  );
-  useReveal(`${filter}-${layout}`);
+  useReveal("mark-archive");
   return (
     <section
-      className="collections section-padding"
       id="collections"
+      className="collections"
       aria-labelledby="collections-title"
     >
-      <div className="section-kicker" data-reveal>
-        <span className="eyebrow">01 / THE COLLECTIONS</span>
-        <span>
-          {String(collections.length).padStart(2, "0")} STORIES. {totalPhotos}{" "}
-          FRAMES.
-        </span>
-      </div>
-      <div className="section-heading" data-reveal>
-        <h2 id="collections-title">
-          Different days.
-          <br />
-          <span className="serif">Different sides.</span>
-        </h2>
-        <p>
-          Not just photographs. Little pieces of me.
-          <br />
-          <span lang="th">เลือกเรื่องราว แล้วเข้ามาดูให้ใกล้อีกนิด</span>
-        </p>
-      </div>
-      <div className="collection-toolbar">
-        <div className="filter-tabs" aria-label="Filter collections">
-          {filters.map((item) => (
-            <button
-              key={item}
-              aria-pressed={filter === item}
-              className={filter === item ? "active" : ""}
-              onClick={() => setFilter(item)}
-            >
-              {item}
-              <sup>
-                {String(
-                  collections.filter(
-                    (collection) =>
-                      item === "All collections" ||
-                      collection.category === item,
-                  ).length,
-                ).padStart(2, "0")}
-              </sup>
-            </button>
+      <div className="archive-intro section-padding">
+        <div className="section-kicker">
+          <span>01 / THE COLLECTIONS</span>
+          <span>10 CHAPTERS · {totalPhotos} PHOTOGRAPHS</span>
+        </div>
+        <div className="section-heading" data-reveal>
+          <h2 id="collections-title">
+            A life in chapters.
+            <br />
+            <span className="serif">In my own order.</span>
+          </h2>
+          <p lang="th">
+            จากช่วงเวลาหนึ่ง สู่ตัวตนอีกด้าน
+            <br />
+            เรียงตามการเดินทาง พร้อมเรื่องราวที่กำลังจะถูกเติมเต็ม
+          </p>
+        </div>
+        <nav className="chapter-index" aria-label="Jump to a collection">
+          {collections.map((collection) => (
+            <a key={collection.id} href={`#${collection.id}`}>
+              <span>{collection.number}</span>
+              {collection.title}
+            </a>
           ))}
-        </div>
-        <div className="view-toggle" aria-label="Collection layout">
-          <button
-            aria-label="Grid view"
-            aria-pressed={layout === "grid"}
-            onClick={() => setLayout("grid")}
+        </nav>
+      </div>
+      {collections.map((collection) => (
+        <section
+          key={collection.id}
+          id={collection.id}
+          className={`chapter chapter-${collection.layout} section-padding`}
+          aria-labelledby={`title-${collection.id}`}
+        >
+          <div className="chapter-topline">
+            <span>CHAPTER {collection.number}</span>
+            <span>{collection.english}</span>
+            <span>MARK. / PERSONAL ARCHIVE</span>
+          </div>
+          <div className="chapter-heading" data-reveal>
+            <span className="chapter-big-number">{collection.number}</span>
+            <div>
+              <p className="eyebrow">{collection.english}</p>
+              <h3 id={`title-${collection.id}`}>
+                {collection.details.eventName || collection.title}
+              </h3>
+            </div>
+            <span className="chapter-frame-count">
+              {String(collection.photos.length).padStart(2, "0")}
+              <small>FRAMES</small>
+            </span>
+          </div>
+          <EventMetadata collection={collection} />
+          <div className="selection-label">
+            <span>CHAPTER HIGHLIGHTS</span>
+            <span>THE SELECTED FRAMES</span>
+          </div>
+          <div
+            className={`chapter-composition layout-${collection.layout}`}
+            data-reveal
           >
-            <Icon name="grid" width="16" height="16" />
-          </button>
-          <button
-            aria-label="List view"
-            aria-pressed={layout === "list"}
-            onClick={() => setLayout("list")}
-          >
-            <Icon name="list" width="19" height="19" />
-          </button>
-        </div>
-      </div>
-      <div className={`collection-grid ${layout === "list" ? "is-list" : ""}`}>
-        {visible.map((collection) => (
-          <CollectionCard
-            key={collection.id}
-            collection={collection}
-            onOpen={() =>
-              onOpen({ collectionId: collection.id, photoIndex: 0 })
-            }
-          />
-        ))}
-      </div>
-      <div className="collection-end">
-        <span className="small-cross">+</span>
-        <span>A PERSONAL ARCHIVE, ALWAYS UNFOLDING.</span>
-        <span className="small-cross">+</span>
-      </div>
+            {collection.photos
+              .slice(
+                0,
+                collection.layout === "contact" ||
+                  collection.layout === "mosaic"
+                  ? 5
+                  : collection.layout === "diptych"
+                    ? 2
+                    : 3,
+              )
+              .map((photo, index) => (
+                <PhotoTile
+                  photo={photo}
+                  index={index}
+                  key={photo.id}
+                  onOpen={() =>
+                    onOpen({ collectionId: collection.id, photoIndex: index })
+                  }
+                />
+              ))}
+          </div>
+          <CollectionArchive collection={collection} onOpen={onOpen} />
+        </section>
+      ))}
     </section>
   );
 }

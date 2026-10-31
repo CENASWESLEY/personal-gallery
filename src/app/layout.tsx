@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import { heroPortrait } from "@/data/gallery";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
     "https://fragments-personal-gallery-supav.nutmeg-bead-1672.chatgpt.site",
   ),
-  title: "FRAGMENTS — A Personal Gallery",
+  title: "MARK. — Supavit Mungmalee / Mark Cenas",
   description:
-    "Different moments. Different versions. Still me. A personal exhibition of portraits, style, and the moments in between.",
+    "Supavit Mungmalee, also known as Mark Cenas — the person behind Cenaswesley. A personal archive of portraits, milestones, and style.",
   openGraph: {
-    title: "FRAGMENTS — A Personal Gallery",
+    title: "MARK. — Supavit Mungmalee / Mark Cenas",
     description: "Every side is a story.",
     images: [
       {
-        url: "/photos/05.webp",
-        width: 1400,
-        height: 1400,
-        alt: "Fragments personal portrait exhibition",
+        url: "/archive/c04-007.webp",
+        width: heroPortrait.width,
+        height: heroPortrait.height,
+        alt: "Supavit Mungmalee in a black suit",
       },
     ],
     type: "website",

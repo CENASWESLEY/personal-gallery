@@ -1,130 +1,90 @@
-"use client";
-
-import { useState } from "react";
-import { photographs, profile } from "@/data/gallery";
+import { profile, highlights } from "@/data/gallery";
 import { Icon } from "@/components/ui/Icon";
+import type { ViewerSelection } from "@/types/gallery";
 
-/** A quiet interlude with editable personal copy and optional contact details. */
-export function About({ onOpen }: { onOpen: () => void }) {
-  const [contactOpen, setContactOpen] = useState(false);
+/** Identity and name origin use only facts supplied by the owner. */
+export function About({
+  onOpen,
+}: {
+  onOpen: (selection: ViewerSelection) => void;
+}) {
   return (
     <>
-      <section className="interlude" aria-label="Personal perspective">
-        <div className="interlude-top">
-          <span>NO SINGLE FRAME TELLS THE WHOLE STORY.</span>
-          <span>NEITHER DOES A SINGLE SIDE.</span>
-        </div>
-        <div className="interlude-main" data-reveal>
-          <Icon
-            name="spark"
-            className="interlude-star"
-            width="90"
-            height="90"
-          />
-          <p>
-            Same person.
-            <br />
-            <span className="serif">A thousand perspectives.</span>
-          </p>
-          <span className="interlude-no">( f. )</span>
-        </div>
-      </section>
-      <section
-        className="about section-padding"
-        id="about"
-        aria-labelledby="about-title"
-      >
+      <section id="about" className="about section-padding">
         <div className="about-portrait" data-reveal>
-          <button onClick={onOpen} aria-label="Open the about portrait">
+          <button
+            onClick={() =>
+              onOpen({ collectionId: "highlights", photoIndex: 3 })
+            }
+            aria-label="Open Mark's portrait"
+          >
             <img
-              src={photographs["12"].src}
-              alt={photographs["12"].alt}
+              src={highlights[3].src}
+              alt={highlights[3].alt}
               loading="lazy"
-              width="800"
-              height="1000"
             />
             <span>
-              <Icon name="expand" /> LOOK A LITTLE CLOSER
+              THE PERSON BEHIND THE FRAMES{" "}
+              <Icon name="expand" width="16" height="16" />
             </span>
           </button>
-          <span className="photo-note">
-            A PORTRAIT. A MOMENT. A LITTLE MORE ME.
-          </span>
         </div>
         <div className="about-copy" data-reveal>
-          <span className="eyebrow">02 / BEHIND THE FRAME</span>
-          <h2 id="about-title">
-            A little style.
-            <br />A little soul.
+          <span className="eyebrow">02 / BEHIND THE NAME</span>
+          <h2>
+            Supavit.
             <br />
-            <span className="serif">All me.</span>
+            <span className="serif">Mark Cenas.</span>
+            <br />
+            Simply me.
           </h2>
-          <p className="about-statement">{profile.statement}</p>
-          <p className="about-bio" lang="th">
-            {profile.bio}
+          <p lang="th">
+            ผมชื่อ <strong>Supavit Mungmalee</strong> เรียกผมว่า{" "}
+            <strong>Mark Cenas</strong> ก็ได้ครับ
           </p>
-          <div className="about-signature">
-            <span className="signature">fragments.</span>
-            <span>AN EVER-EVOLVING SELF-PORTRAIT</span>
-          </div>
+          <p lang="th">
+            Mark มาจากชื่อเล่นของผม ส่วน Cenas มาจากชื่อช่อง{" "}
+            <strong>Cenaswesley</strong> — สองชื่อที่รวมเป็นอีกมุมหนึ่งของตัวผม
+          </p>
+          <p className="about-signature">Different chapters. Same Mark.</p>
         </div>
       </section>
-      <footer className="footer section-padding">
+      <footer className="footer section-padding" id="contact">
         <div className="footer-top">
-          <span className="eyebrow">EVERY GOOD STORY STARTS WITH A HELLO.</span>
+          <span>EVERY GOOD STORY STARTS WITH A HELLO.</span>
           <a href="#home">
-            BACK TO TOP <Icon name="arrow" width="15" height="15" />
+            BACK TO TOP <Icon name="arrow" width="16" height="16" />
           </a>
         </div>
-        <div className="footer-heading">
+        <div className="footer-main">
           <h2>
-            Let’s make
-            <br />
-            <span className="serif">a scene.</span>
+            Keep in <span className="serif">touch.</span>
           </h2>
-          <button
+          <a
             className="contact-circle"
-            aria-label="Show contact details"
-            aria-expanded={contactOpen}
-            aria-controls="contact-details"
-            onClick={() => setContactOpen(!contactOpen)}
+            href={`mailto:${profile.email}`}
+            aria-label="Email Mark"
           >
-            <Icon
-              name={contactOpen ? "close" : "arrow"}
-              width="50"
-              height="50"
-            />
-          </button>
-        </div>
-        {contactOpen && (
-          <div className="contact-details" id="contact-details">
-            {profile.email ? (
-              <a href={`mailto:${profile.email}`}>
-                {profile.email}
-                <Icon name="arrow" />
-              </a>
-            ) : (
-              <p lang="th">
-                ช่องทางติดต่อกำลังจะมาเร็ว ๆ นี้
-                <br />
-                <span lang="en">
-                  A new connection. A new story. Coming soon.
-                </span>
-              </p>
-            )}
-            {profile.instagramUrl && (
-              <a href={profile.instagramUrl} target="_blank" rel="noreferrer">
-                Instagram <Icon name="arrow" />
-              </a>
-            )}
-          </div>
-        )}
-        <div className="footer-bottom">
-          <a href="#home" className="footer-wordmark">
-            FRAGMENTS<span>®</span>
+            <Icon name="arrow" width="46" height="46" />
           </a>
-          <span>A PERSONAL GALLERY. AN ONGOING STORY.</span>
-          <span>© {new Date().getFullYear()} FRAGMENTS</span>
+        </div>
+        <div className="contact-links">
+          <a href={profile.instagramUrl} target="_blank" rel="noreferrer">
+            <span>INSTAGRAM</span>@{profile.instagram}
+            <Icon name="arrow" />
+          </a>
+          <a href={`mailto:${profile.email}`}>
+            <span>EMAIL</span>
+            {profile.email}
+            <Icon name="arrow" />
+          </a>
+        </div>
+        <div className="footer-bottom">
+          <a href="#home" className="footer-mark">
+            MARK.
+          </a>
+          <span>SUPAVIT MUNGMALEE / MARK CENAS</span>
+          <span>© {new Date().getFullYear()} MARK.</span>
         </div>
       </footer>
     </>

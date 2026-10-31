@@ -1,11 +1,10 @@
-# FRAGMENTS — A Personal Gallery
+# MARK. — Supavit Mungmalee / Mark Cenas
 
-เว็บไซต์แกลเลอรีส่วนตัวด้วย **Next.js App Router + TypeScript + React** ธีมขาว–ดำ
-ใช้ภาพจริง 20 ภาพจากโฟลเดอร์ต้นฉบับ พร้อมข้อมูล Event แบบ mock ที่แก้ไขได้
+เว็บไซต์แกลเลอรีส่วนตัว Next.js App Router + TypeScript
+ใช้ภาพสีต้นฉบับ 127 รูปจาก 10 คอลเลกชัน และ 20 รูปในโฟลเดอร์ `Hightlight`
+โครงเว็บเป็นขาว–ดำ แต่ไม่มีการเปลี่ยนสีภาพเป็น monochrome
 
-## เริ่มใช้งาน
-
-ต้องการ Node.js 20.9 ขึ้นไป
+## เปิดโปรเจกต์
 
 ```powershell
 cd D:\Photo\fragments
@@ -13,121 +12,118 @@ npm install
 npm run dev
 ```
 
-เปิด http://127.0.0.1:3000
+เปิด http://127.0.0.1:3000 ใช้ Node.js 20.9 ขึ้นไป
 
 ```powershell
-npm run typecheck  # ตรวจ TypeScript
-npm run build      # สร้าง static website ลง out/
+npm run typecheck
+npm run build
 ```
 
-ใช้ `npm run dev` ระหว่างพัฒนา (โปรเจกต์นี้เป็น static export)
-หรือนำ `out/` ไปวางบน static hosting เช่น Sites, Cloudflare Pages หรือ Netlify
+Static export สร้างลง `out/` สำหรับ Sites หรือ static hosting อื่น
 
-## แก้ไขข้อมูลและ Event
+## ข้อมูลที่รอเจ้าของเติม
 
-ไฟล์หลัก: **`src/data/gallery.ts`**
-
-- `profile`: ข้อความแนะนำตัว, อีเมล, URL Instagram
-- `photographs`: ชื่อภาพ, alt text, ตำแหน่ง crop (`position`)
-- `collections`: ชื่อ Event, คำอธิบาย, หมวดหมู่, ภาพปก, ลำดับภาพ
-- ชื่อคอลเลกชันเป็นชื่อสมมติเพื่อจัดกลุ่มตามชุด ไม่มีการอ้างวันที่หรือสถานที่จริง
-
-ตัวอย่างการเพิ่ม Event:
+แก้ **`src/data/event-details.ts`** โดยใช้ collection ID:
 
 ```ts
-{
-  id: "my-new-event", // ไม่ซ้ำกัน; ใช้อักษรอังกฤษและขีดกลาง
-  number: "05",
-  title: "My new chapter",
-  subtitle: "A NEW PERSPECTIVE",
-  category: "Daylight", // หรือ "After hours"
-  cover: "01", // ID ใน photographs
-  description: "ใส่เรื่องราวของชุดนี้ที่นี่",
-  photos: ["01", "03"].map(id => photographs[id]),
-}
+export const eventDetails = {
+  "cooperative-awards": {
+    eventName: "ชื่อเหตุการณ์จริง",
+    location: "ชื่อสถานที่",
+    date: "วัน เดือน ปี",
+    time: "เวลา",
+    story: "รายละเอียดของเหตุการณ์",
+    outfit: "รายละเอียดชุดที่ต้องการแสดง",
+  },
+};
 ```
 
-จำนวนภาพ จำนวนคอลเลกชัน และตัวเลขในตัวกรองคำนวณจากข้อมูลอัตโนมัติ
+ยังไม่มีการเดาวันเวลา/สถานที่จากรูป ป้ายสถานที่และวันเวลาจะแสดงรอระบุ
+ชื่อคอลเลกชันปัจจุบันอิงชื่อโฟลเดอร์ ส่วนรายละเอียดชุดอิงสิ่งที่เห็นในภาพ
 
-หากเพิ่ม `profile.email` ปุ่มวงกลมใน Footer จะแสดงลิงก์อีเมล
-หากยังไม่ใส่ข้อมูล จะแสดงข้อความ coming soon
+| ลำดับ | Collection ID           | โฟลเดอร์             | จำนวน | รูปแบบนำเสนอ  |
+| ----- | ----------------------- | -------------------- | ----: | ------------- |
+| 01    | cooperative-awards      | 1.รับรางวัลสหกิจ     |     6 | Editorial     |
+| 02    | cooperative-competition | 2.ประกวดสหกิจ        |     4 | Stage         |
+| 03    | graduation              | 3.รับปริญญา          |    20 | Filmstrip     |
+| 04    | black-suit              | 4.สูทดำ              |    13 | Noir          |
+| 05    | white-suit              | 5.สูทขาว             |     9 | Diptych       |
+| 06    | bkk-challenge           | 6.BKK challenge      |     9 | Panorama      |
+| 07    | coeidol                 | 6.COEIDOL            |    14 | Mosaic        |
+| 08    | cafe-bkk-challenge      | 7.Cafe BKK Challenge |     6 | Cinema        |
+| 09    | white-shirt             | 8.White Shirt        |    23 | Lookbook      |
+| 10    | blue-shirt              | 9.Blue Shirt         |    23 | Contact sheet |
 
-## เปลี่ยนรูป
+เลข 6 ซ้ำสองโฟลเดอร์ จึงรักษาลำดับชื่อ BKK challenge ก่อน COEIDOL
+การเรียง timeline ใช้ลำดับโฟลเดอร์ ส่วนการเรียงภาพในแต่ละชุดคัดจาก
+ความชัดเจนของใบหน้า ท่าโพส และองค์ประกอบภาพ เป็น editorial choice ที่แก้ได้
 
-รูปที่เว็บใช้เก็บอยู่ใน `public/photos/` เป็น WebP:
+## โครงสร้างไฟล์
 
-- `01.webp`–`20.webp`: ภาพสำหรับแสดงผล
-- `01-thumb.webp`–`20-thumb.webp`: ภาพย่อใน viewer
+```text
+src/
+  app/                 Entry point, metadata, favicon, CSS imports
+  components/
+    hero/              MirrorOrbit, Hero
+    collections/       Highlights, Collections, CollectionArchive, PhotoTile
+    viewer/            PhotoViewer — zoom, slideshow, jump-to-frame
+    about/             ชื่อจริง ที่มาชื่อ Mark Cenas และ contact
+    layout/            Header และ mobile menu
+    ui/                SVG icons
+  data/
+    gallery.ts         Identity, contact และประกอบข้อมูลแต่ละชุด
+    curation.json      ลำดับโฟลเดอร์/ภาพและรูปแบบ layout
+    event-details.ts   ข้อมูลเหตุการณ์จริงที่รอเติม
+    photographs.json   Asset manifest ที่สร้างอัตโนมัติ
+  hooks/               useMirrorOrbit และ useReveal
+  styles/              แยก CSS ตาม feature และ responsive overrides
+  types/               Domain interfaces พร้อม TSDoc
+public/
+  archive/             ภาพ WebP และ thumbnails สีต้นฉบับ
+  images/              Hero cutout และโลโก้ที่เจ้าของให้
+  fonts/               Local fonts พร้อม OFL licenses
+scripts/
+  prepare-images.mjs   Import/optimize จากโฟลเดอร์รูปเดิม
+```
 
-แทนไฟล์เดิมด้วยภาพใหม่ชื่อเดิม หรือเพิ่ม reference ใหม่ใน `photographs`
-ถ้าต้องการสร้าง WebP ใหม่จากไฟล์ต้นฉบับในโฟลเดอร์แม่:
+## เปลี่ยนรูปและลำดับภาพ
+
+`src/data/curation.json` กำหนดโฟลเดอร์, ชื่อเริ่มต้น, ชุด, layout, ลำดับภาพ
+ตัวเลขใน `order` อ้างตำแหน่ง 1-based ของไฟล์ที่เรียงชื่อตามตัวอักษร
+ต้องใส่ทุกภาพครั้งเดียว สคริปต์ตรวจความครบถ้วนก่อน import
 
 ```powershell
 npm run prepare:images
 ```
 
-สคริปต์ `scripts/prepare-images.mjs` ผูกชื่อไฟล์ต้นฉบับกับ ID ภาพ
-ปรับรายการ `originals` เมื่อเปลี่ยนไฟล์ต้นฉบับ สคริปต์ไม่แก้รูปต้นฉบับ
-และลบ EXIF ออกจากไฟล์ที่สร้างเพื่อลดข้อมูลส่วนตัวที่ไม่จำเป็น
+สคริปต์อ่านต้นฉบับจากโฟลเดอร์แม่ (`D:\Photo`) ไม่แก้ไฟล์เดิม
+รูปที่เผยแพร่ถูกย่อเป็น WebP พร้อมลบ EXIF และคงสีเดิม
+หลังเปลี่ยน order ต้องรันสคริปต์ใหม่เพื่อสร้าง manifest ให้ตรงกัน
 
-## โครงสร้างโมดูล
+## การดูภาพจำนวนมาก
 
-```text
-src/
-  app/                 หน้าเว็บ, metadata, favicon และ design tokens/CSS
-  components/
-    GalleryExperience  ประสาน theme และสถานะ viewer
-    layout/            Header และเมนูมือถือ
-    hero/              Hero และประติมากรรมกระจกแตก
-    collections/       ตัวกรอง, grid/list, การ์ด Event
-    viewer/            หน้าดูภาพเต็มจอ
-    about/             เกี่ยวกับตัวเองและ Footer
-    ui/                SVG icons
-  data/                ข้อมูลส่วนตัวและคอลเลกชัน
-  hooks/               IntersectionObserver scroll reveal
-  types/               TypeScript domain interfaces
-scripts/               เครื่องมือเตรียมภาพ
-public/
-  photos/              WebP ที่ optimize แล้ว
-  fonts/               ฟอนต์ local พร้อม OFL licenses
-```
+- Global Highlight reel แสดงครบ 20 ภาพและเปิด viewer ได้
+- ทุกคอลเลกชันมี Chapter Highlights ก่อนส่วนภาพทั้งหมด
+- ปุ่มดูทั้งหมดเปิดกริดครั้งละ 8 ภาพ มีเลขหน้าและจำนวนภาพชัดเจน
+- Viewer มี dropdown เลือกภาพโดยตรง, thumbnail ที่เลื่อนได้,
+  ปุ่มก่อนหน้า/ถัดไป, keyboard arrows, zoom และ slideshow
+- ภาพย่อที่เลือกจะเลื่อนเข้ามาในพื้นที่ที่มองเห็น รวมถึงหลัง resize
+- Escape ปิด viewer และคืน focus ให้ปุ่มเดิม
 
-Exported component, hook และ domain interface มี TSDoc/JSDoc
-อธิบายหน้าที่และพฤติกรรมสำคัญใกล้กับโค้ด
+## วงกระจกหน้าแรก
 
-## ประสบการณ์การดูภาพ
+1 ชิ้นกระจก = 1 รูปจากแต่ละคอลเลกชัน ต่างจากภาพเดียวที่ถูกซอยเป็นหลายชิ้น
+มีวงโคจรอัตโนมัติ, drag, ปุ่มหมุนทีละช่วง, pause/play และปุ่มเปิด Gallery
+หยุดเคลื่อนไหวเมื่อ hover/focus, อยู่นอกจอ หรือ browser ถูกซ่อน
+เมื่อระบบตั้ง reduced motion จะเริ่มต้นเป็นหยุดหมุน
+ภาพกลางเป็น cutout เตรียมจากภาพสูทดำ ดู provenance ใน `docs/asset-notes.md`
 
-- Hover หรือกด **Break the glass** เพื่อแยกชิ้นกระจก
-- เลือก Event เพื่อเปิด modal viewer แบบ native `<dialog>`
-- ปุ่มลูกศรหรือแป้นพิมพ์ ← → ใช้เปลี่ยนภาพ วนภายใน Event
-- เลือก thumbnail เพื่อไปยังภาพที่ต้องการ
-- บนมือถือปัดภาพไปซ้ายหรือขวาเพื่อเปลี่ยนภาพ
-- คลิกภาพหรือปุ่มแว่นขยายเพื่อซูม; เมาส์เลื่อนจุดมองเมื่อซูม
-- สลับภาพ monochrome กับสีต้นฉบับ
-- Slideshow เปลี่ยนภาพทุก 4.2 วินาที และหยุดเดินเมื่อแท็บถูกซ่อน
-- Escape หรือปุ่มปิดจะคืน focus และ scroll ไปยังจุดเดิม
-- Theme บันทึกใน localStorage; ใช้ได้แม้ browser ปิด storage
+## Theme และ contact
 
-## Accessibility และ performance
+แก้ข้อมูลส่วนตัวที่ `profile` ใน `src/data/gallery.ts`
+Instagram: `supavit_mu` / Email: `supavit.mu@gmail.com`
+Theme บันทึกด้วย key `mark-theme` และมี fallback หาก storage ไม่พร้อม
+ฟอนต์เป็น local assets ไม่มี external font CDN
 
-Native dialog จัดการ focus containment, ปุ่มมี accessible labels,
-รองรับคีย์บอร์ด, skip link, visible focus และ `prefers-reduced-motion`
-แอนิเมชันใช้ CSS transform/opacity, scroll progress ใช้ requestAnimationFrame,
-ภาพนอกจอ lazy load และรูปภาพทั้งหมดถูกย่อขนาดไว้ล่วงหน้า
-ฟอนต์ DM Sans และ Noto Sans Thai เก็บในโปรเจกต์พร้อมใบอนุญาต OFL
-ไม่มี image API, external font CDN หรือฐานข้อมูลที่ต้องตั้งค่าเพิ่มเติม
-
-## ปรับดีไซน์
-
-แก้ design tokens ที่ต้น `src/app/globals.css` เช่น `--paper`, `--ink`,
-`--line`, `--gutter` และ dark theme ใน selector `[data-theme="dark"]`
-ตำแหน่งชิ้นกระจกแก้ที่ `facets` ใน `FracturedPortrait.tsx`
-Hero portrait อ้างภาพ `05` และเปิด collection `the-black-edition`
-หากเปลี่ยนภาพ Hero ควรเปลี่ยนทั้ง reference ใน component และ selection
-ใน `GalleryExperience.tsx` ให้ตรงกัน
-
-## การเผยแพร่
-
-`.openai/hosting.json` ระบุ Sites project และ static directory `out`
-การเผยแพร่ครั้งแรกกำหนดเป็น private เจ้าของบัญชีเข้าดูได้
-ภาพต้นฉบับในโฟลเดอร์แม่ไม่อยู่ใน source หรือ deployment bundle
+ลิงก์ Sites เดิมคงอยู่เพื่อรักษา project/access เดิม แต่ชื่อเว็บไซต์และ
+metadata เปลี่ยนเป็น MARK. แล้ว การเผยแพร่ยังเป็น private ของเจ้าของบัญชี

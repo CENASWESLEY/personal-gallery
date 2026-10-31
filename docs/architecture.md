@@ -1,38 +1,40 @@
-# Architecture decisions
+# MARK. architecture
 
-## Content boundary
+## Content boundaries
 
-`Collection` และ `Photograph` เป็น domain types ที่ไม่ผูกกับ React
-`src/data/gallery.ts` เป็นแหล่งข้อมูลหลักของภาพและ Event ทั้งหมด
-component แสดงผลรับข้อมูลหรือ callback ผ่าน props จึงเปลี่ยนเป็น CMS
-หรือ API ในภายหลังได้โดยรักษา interface เดิม
+`curation.json` แยกการคัดภาพและ presentation layout ออกจากข้อมูลเหตุการณ์จริง
+`event-details.ts` เก็บเฉพาะรายละเอียดที่ยืนยันจากเจ้าของได้
+`prepare-images.mjs` อ่านโฟลเดอร์, ตรวจ order ครบทุกภาพ และสร้าง
+`photographs.json` พร้อม asset URLs, dimensions และ source filename
+`gallery.ts` ประกอบข้อมูลเป็น domain types สำหรับ UI
 
-## Interaction ownership
+ไม่มีการใช้ EXIF หรือเวลาแก้ไขไฟล์มาแต่งข้อมูลเหตุการณ์
+ลำดับโฟลเดอร์คือ timeline; ลำดับภาพในโฟลเดอร์คือ editorial curation
 
-`GalleryExperience` ดูแลสถานะที่ใช้ข้าม section: theme และ viewer selection
-`Collections` ดูแล filter/layout เฉพาะของตัวเอง
-`FracturedPortrait` ดูแลสถานะกระจกและ pointer tilt โดยไม่ rerender ทุกเฟรม
-`PhotoViewer` ดูแลภาพปัจจุบัน, zoom, color และ slideshow ภายใน modal
-ไม่มี global state library เพราะข้อมูลร่วมมีเพียงสองจุด
+## State ownership
 
-## Glass rendering
+- `GalleryExperience`: shared viewer selection และ theme
+- `useMirrorOrbit`: rotation, drag gesture และ playback lifecycle
+- `CollectionArchive`: expanded state และเลขหน้าของแต่ละชุดอย่างอิสระ
+- `PhotoViewer`: image index, zoom และ slideshow ภายใน native dialog
 
-ใช้ภาพเดียวกันใน coordinate system เดียวกันและ clip เป็น polygon 7 ชิ้น
-ขยับแต่ละชิ้นด้วย transform เพื่อคงรอยต่อและให้ GPU ช่วย composite
-ไม่มี canvas หรือ WebGL ที่เพิ่มค่าใช้จ่ายในการโหลดและการเข้าถึง
-ภาพซ้ำทั้ง 7 ชิ้นใช้ URL เดียวกัน browser จึง reuse network cache
+วงกระจกใช้ refs และ CSS transforms เพื่อหลีกเลี่ยง React render ทุกเฟรม
+CSS clip-path ให้แต่ละชิ้นมีรูปตัวเองและขอบสะท้อน ใช้ WebGL ไม่จำเป็น
+ResizeObserver คำนวณวงโคจรใหม่ให้ตรงขนาดจอ
+IntersectionObserver และ document visibility ป้องกันการอัปเดตตำแหน่งนอกจอ
 
-## Static delivery
+## Access to every image
 
-Next.js static export ทำให้เว็บทำงานบน static hosting ได้ทั้งหมด
-รูป WebP และ thumbnails เตรียมล่วงหน้าโดย sharp
-ไม่มี server actions, secrets, session หรือ backend ที่ต้องดูแล
-`next/image` proxy จึงไม่จำเป็น รูปมีขนาดและ aspect ratio จองไว้ใน CSS
+ภาพนำเป็นเพียง curated preview ไม่ใช่ archive ทั้งหมด
+แต่ละชุดมีกริด 8 ภาพต่อหน้า และ viewer ที่ jump ไปภาพใดก็ได้
+thumbnail ใช้ overflow scroll และ scroll selected item into view
+ResizeObserver รักษา active thumbnail ให้อยู่ในจอเมื่อหมุน/resize อุปกรณ์
 
-## Motion and resilience
+## Styling and delivery
 
-ข้อมูลทั้งหมด render ใน HTML เริ่มต้น Scroll reveal จะซ่อนเนื้อหาเฉพาะ
-เมื่อ observer พร้อมทำงานและเนื้อหาอยู่นอก viewport
-reduced motion แสดงเนื้อหาใน final state และปิด animation ที่ไม่จำเป็น
-theme persistence มี try/catch เพื่อรองรับ storage policy ของ browser
-native dialog คืน focus ให้ตัวเปิดเมื่อปิดและป้องกัน background scrolling
+`src/styles/` แยก base, hero, collections, about, viewer และ responsive
+chapter แต่ละชุดใช้ modifier class ของตัวเองเพื่อเปลี่ยน composition
+CSS ไม่มี grayscale หรือ color grading สำหรับรูปภาพ
+Native dialog จัดการ focus containment และ Escape; cleanup คืน focus/scroll
+Next.js static export ทำให้ไม่ต้องมี backend หรือ secrets
+ภาพ optimize ก่อน deploy และ EXIF ถูกลบจากไฟล์ที่สร้าง

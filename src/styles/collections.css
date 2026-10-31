@@ -1,0 +1,550 @@
+/* Highlight reel and chronological index */
+.highlights {
+  padding-top: 95px;
+  padding-bottom: 70px;
+  overflow: hidden;
+}
+.section-kicker {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  margin-bottom: 30px;
+}
+.section-kicker > span:last-child {
+  color: var(--muted);
+  font-size: 8px;
+}
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 43px;
+}
+.section-heading h2 {
+  font-size: clamp(40px, 4.4vw, 73px);
+  line-height: 1.03;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+.section-heading p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.highlight-intro {
+  max-width: 345px;
+}
+.reel-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+}
+.reel-controls .text-link {
+  margin-left: 13px;
+}
+.highlight-reel {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+  padding-bottom: 19px;
+}
+.highlight-slide {
+  flex: 0 0 26%;
+  scroll-snap-align: start;
+}
+.highlight-slide:nth-child(3n + 2) {
+  padding-top: 54px;
+}
+.highlight-slide .photo-tile {
+  aspect-ratio: 0.72;
+  width: 100%;
+}
+.highlight-slide > span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  letter-spacing: 0.09em;
+  margin-top: 13px;
+}
+.highlight-slide i {
+  font-style: normal;
+  color: var(--muted);
+}
+.reel-footer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+  font-size: 7px;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+}
+.archive-intro {
+  padding-top: 48px;
+  padding-bottom: 55px;
+}
+.chapter-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.chapter-index a {
+  border: 1px solid var(--line);
+  padding: 11px 14px;
+  min-height: 44px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 10px;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.chapter-index a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.chapter-index a > span {
+  font-size: 8px;
+  color: var(--muted);
+}
+
+/* Shared chapter anatomy, with unique compositions below. */
+.chapter {
+  padding-top: 33px;
+  padding-bottom: 45px;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+.chapter-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.chapter-topline > span:nth-child(2) {
+  color: var(--muted);
+}
+.chapter-heading {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 34px;
+  margin-bottom: 30px;
+}
+.chapter-big-number {
+  font-size: 80px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1;
+  color: var(--line);
+  letter-spacing: -0.07em;
+}
+.chapter-heading .eyebrow {
+  font-size: 8px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.chapter-heading h3 {
+  font-size: clamp(30px, 3.2vw, 55px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.3;
+}
+.chapter-frame-count {
+  margin-left: auto;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 37px;
+  line-height: 1;
+  text-align: center;
+}
+.chapter-frame-count small {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-size: 6px;
+  letter-spacing: 0.12em;
+  margin-top: 10px;
+}
+.event-details {
+  margin-bottom: 30px;
+}
+.event-details dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  gap: 30px;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.event-details dt {
+  font-size: 7px;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.event-details dd {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.event-details dd.pending {
+  color: var(--muted);
+  font-size: 10px;
+}
+.event-story {
+  font-size: 12px;
+  line-height: 2;
+  max-width: 640px;
+  margin-top: 18px;
+}
+.chapter-composition {
+  display: grid;
+  gap: 24px;
+  height: 510px;
+}
+.photo-tile {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  background: var(--soft);
+  text-align: left;
+  width: 100%;
+  height: 100%;
+}
+.photo-tile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.85s var(--ease);
+}
+.photo-tile:hover > img {
+  transform: scale(1.035);
+}
+.tile-index {
+  position: absolute;
+  top: 16px;
+  left: 17px;
+  color: white;
+  font-size: 9px;
+  text-shadow: 0 1px 6px #0009;
+}
+.tile-open {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 41px;
+  height: 41px;
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.photo-tile:hover .tile-open {
+  background: var(--ink);
+  color: var(--paper);
+}
+.collection-archive {
+  margin-top: 25px;
+}
+.archive-bar {
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.archive-bar > span {
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+.archive-bar i {
+  font-style: normal;
+  color: var(--muted);
+  font-size: 7px;
+  margin-left: 8px;
+}
+.archive-bar > div {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.archive-toggle {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  font-size: 10px;
+}
+.archive-toggle:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.archive-content {
+  padding-top: 28px;
+  scroll-margin-top: 105px;
+}
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.archive-grid .photo-tile {
+  aspect-ratio: 0.78;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+.pagination p {
+  font-size: 11px;
+  color: var(--muted);
+}
+.pagination > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.page-button {
+  width: 44px;
+  height: 44px;
+  font-size: 11px;
+  border: 1px solid transparent;
+}
+.page-button[aria-current="page"] {
+  border-color: var(--ink);
+}
+
+/* 01 Editorial: a lead portrait balanced against two contextual frames. */
+.layout-editorial {
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 1100px;
+  margin: auto;
+  height: 560px;
+}
+.layout-editorial .photo-tile:first-child {
+  grid-row: span 2;
+}
+.layout-editorial .photo-tile:not(:first-child) img {
+  object-fit: contain;
+  background: var(--soft);
+}
+/* 02 Stage: one cinematic lead with a pair of presentation records. */
+.chapter-stage {
+  background: var(--soft);
+}
+.layout-stage {
+  grid-template-columns: 1.8fr 1fr 1fr;
+  align-items: center;
+  height: 410px;
+}
+.layout-stage .photo-tile:first-child {
+  height: 100%;
+}
+.layout-stage .photo-tile:not(:first-child) {
+  height: 70%;
+  transform: translateY(25px);
+}
+.layout-stage img {
+  object-fit: contain;
+}
+/* 03 Filmstrip: wide lateral spacing and negative-like perforations. */
+.chapter-filmstrip .chapter-composition {
+  background: #252523;
+  padding: 24px 24px 34px;
+  position: relative;
+  height: 540px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.layout-filmstrip:before,
+.layout-filmstrip:after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f5f4f0 0 7px,
+    transparent 7px 23px
+  );
+}
+.layout-filmstrip:before {
+  top: 9px;
+}
+.layout-filmstrip:after {
+  bottom: 12px;
+}
+/* 04 Noir: a dramatic, asymmetric fashion spread. */
+.chapter-noir {
+  background: #181818;
+  color: #f1f0eb;
+  --ink: #f1f0eb;
+  --paper: #181818;
+  --muted: #aaa9a1;
+  --line: #41413d;
+  --soft: #292927;
+}
+.layout-noir {
+  grid-template-columns: 1.1fr 0.85fr 0.85fr;
+  height: 620px;
+  gap: 32px;
+}
+.layout-noir .photo-tile:nth-child(2) {
+  height: 83%;
+  align-self: end;
+}
+.layout-noir .photo-tile:nth-child(3) {
+  height: 65%;
+  align-self: center;
+}
+.chapter-noir .chapter-heading h3 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 65px;
+}
+/* 05 Diptych: two generous, aligned fashion portraits. */
+.layout-diptych {
+  grid-template-columns: 1fr 1fr;
+  height: 560px;
+  gap: 8%;
+  max-width: 1040px;
+  margin: auto;
+}
+.chapter-diptych .chapter-heading {
+  justify-content: center;
+}
+.chapter-diptych .chapter-big-number {
+  font-size: 65px;
+}
+.chapter-diptych .chapter-frame-count {
+  position: absolute;
+  right: var(--gutter);
+}
+.chapter-diptych .chapter-heading > div {
+  text-align: center;
+}
+/* 06 Panorama: a large scene beside two slender vertical glimpses. */
+.layout-panorama {
+  grid-template-columns: 1.5fr 0.7fr 0.7fr;
+  height: 470px;
+  gap: 15px;
+}
+.layout-panorama .photo-tile:first-child {
+  border: 12px solid var(--soft);
+}
+.layout-panorama .photo-tile:nth-child(3) {
+  margin-top: 45px;
+  height: calc(100% - 45px);
+}
+/* 07 Mosaic: five interlocking frames, no fixed-height document cards. */
+.chapter-mosaic {
+  background: var(--soft);
+}
+.layout-mosaic {
+  grid-template-columns: 1.1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 620px;
+  gap: 13px;
+}
+.layout-mosaic .photo-tile:first-child {
+  grid-row: span 2;
+}
+.layout-mosaic .photo-tile:not(:first-child) img {
+  object-fit: cover;
+}
+/* 08 Cinema: warm night portraits in a widescreen triptych. */
+.chapter-cinema {
+  background: #242321;
+  color: #f3eee5;
+  --ink: #f3eee5;
+  --paper: #242321;
+  --muted: #bdb4a7;
+  --line: #504b43;
+  --soft: #312d29;
+}
+.layout-cinema {
+  grid-template-columns: 1fr 1.3fr 1fr;
+  height: 470px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 18px;
+}
+.layout-cinema .photo-tile:nth-child(2) {
+  height: 100%;
+  transform: scaleY(1.08);
+}
+.layout-cinema .photo-tile:not(:nth-child(2)) {
+  height: 86%;
+  align-self: center;
+}
+.chapter-cinema .chapter-heading h3 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 54px;
+}
+/* 09 Lookbook: staggered portrait studies on a bright page. */
+.layout-lookbook {
+  grid-template-columns: repeat(3, 1fr);
+  height: 590px;
+  gap: 40px;
+}
+.layout-lookbook .photo-tile:nth-child(2) {
+  height: 81%;
+  align-self: center;
+}
+.layout-lookbook .photo-tile:nth-child(3) {
+  height: 89%;
+  align-self: end;
+}
+.chapter-lookbook .chapter-heading h3 {
+  text-transform: uppercase;
+  font-weight: 750;
+  letter-spacing: -0.06em;
+  font-size: 65px;
+}
+/* 10 Contact sheet: one large opening frame and four close-up studies. */
+.chapter-contact {
+  background: color-mix(in srgb, var(--paper) 93%, #9aaec0);
+}
+.layout-contact {
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 650px;
+  gap: 20px;
+}
+.layout-contact .photo-tile:first-child {
+  grid-row: span 2;
+}
+.layout-contact .photo-tile:not(:first-child) {
+  border: 8px solid var(--paper);
+}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Header } from "./layout/Header";
 import { Hero } from "./hero/Hero";
 import { Collections } from "./collections/Collections";
+import { Highlights } from "./collections/Highlights";
 import { About } from "./about/About";
 import { PhotoViewer } from "./viewer/PhotoViewer";
 import { Icon } from "./ui/Icon";
@@ -17,7 +18,7 @@ export function GalleryExperience() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("fragments-theme");
+      const saved = localStorage.getItem("mark-theme");
       const value = saved === "dark";
       setDark(value);
       document.documentElement.dataset.theme = value ? "dark" : "light";
@@ -45,7 +46,7 @@ export function GalleryExperience() {
     setDark(value);
     document.documentElement.dataset.theme = value ? "dark" : "light";
     try {
-      localStorage.setItem("fragments-theme", value ? "dark" : "light");
+      localStorage.setItem("mark-theme", value ? "dark" : "light");
     } catch {
       /* Theme still works without persistence. */
     }
@@ -59,28 +60,21 @@ export function GalleryExperience() {
       <div ref={progress} className="reading-progress" aria-hidden="true" />
       <Header dark={dark} onToggleTheme={toggleTheme} />
       <main>
-        <Hero
-          onOpenPortrait={() =>
-            setSelection({ collectionId: "the-black-edition", photoIndex: 1 })
-          }
-        />
+        <Hero onOpen={setSelection} />
         <div className="marquee" aria-hidden="true">
           <div className="marquee-track">
             {Array.from({ length: 4 }, (_, index) => (
               <span key={index}>
-                LIFE, IN FRAGMENTS <Icon name="spark" width="27" height="27" />
+                MARK CENAS <Icon name="spark" width="27" height="27" />
                 <span className="marquee-outline">EVERY SIDE IS A STORY</span>
                 <Icon name="spark" width="27" height="27" />
               </span>
             ))}
           </div>
         </div>
+        <Highlights onOpen={setSelection} />
         <Collections onOpen={setSelection} />
-        <About
-          onOpen={() =>
-            setSelection({ collectionId: "in-between", photoIndex: 4 })
-          }
-        />
+        <About onOpen={setSelection} />
       </main>
       {selection && (
         <PhotoViewer

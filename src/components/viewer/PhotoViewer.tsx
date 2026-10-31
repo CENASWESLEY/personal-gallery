@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { collections } from "@/data/gallery";
+import { viewerGroups } from "@/data/gallery";
 import { Icon } from "@/components/ui/Icon";
 import type { ViewerSelection } from "@/types/gallery";
 
@@ -16,18 +16,33 @@ interface PhotoViewerProps {
  * Background scroll and the triggering element's focus are restored on exit.
  */
 export function PhotoViewer({ selection, onClose }: PhotoViewerProps) {
-  const collection = collections.find(
+  const collection = viewerGroups.find(
     (item) => item.id === selection.collectionId,
   )!;
   const [index, setIndex] = useState(selection.photoIndex);
   const [zoomed, setZoomed] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [color, setColor] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const image = useRef<HTMLImageElement>(null);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
   const suppressClick = useRef(false);
   const photo = collection.photos[index];
+
+  useEffect(() => {
+    const revealActive = () =>
+      dialog.current
+        ?.querySelector<HTMLElement>('.viewer-thumbnails [aria-pressed="true"]')
+        ?.scrollIntoView({
+          block: "nearest",
+          inline: "center",
+          behavior: "instant",
+        });
+    revealActive();
+    const observer = new ResizeObserver(revealActive);
+    const track = dialog.current?.querySelector(".viewer-thumbnails");
+    if (track) observer.observe(track);
+    return () => observer.disconnect();
+  }, [index]);
 
   const goTo = useCallback(
     (next: number) => {
@@ -98,13 +113,24 @@ export function PhotoViewer({ selection, onClose }: PhotoViewerProps) {
             <h2 id="viewer-title">{collection.title}</h2>
           </div>
           <div className="viewer-tools">
-            <button
-              className="viewer-color"
-              onClick={() => setColor(!color)}
-              aria-pressed={color}
-            >
-              {color ? "Original color" : "Monochrome"}
-            </button>
+            <label className="viewer-jump">
+              JUMP TO FRAME
+              <select
+                aria-label="Jump to photograph"
+                value={index}
+                onChange={(event) => {
+                  setPlaying(false);
+                  goTo(Number(event.target.value));
+                }}
+              >
+                {collection.photos.map((item, photoIndex) => (
+                  <option key={item.id} value={photoIndex}>
+                    {String(photoIndex + 1).padStart(2, "0")} /{" "}
+                    {String(collection.photos.length).padStart(2, "0")}
+                  </option>
+                ))}
+              </select>
+            </label>
             <button
               className="icon-button"
               aria-label={playing ? "Pause slideshow" : "Play slideshow"}
@@ -143,7 +169,7 @@ export function PhotoViewer({ selection, onClose }: PhotoViewerProps) {
             <Icon name="left" width="25" height="25" />
           </button>
           <button
-            className={`viewer-image-wrap ${zoomed ? "zoomed" : ""} ${color ? "in-color" : ""}`}
+            className={`viewer-image-wrap ${zoomed ? "zoomed" : ""}`}
             aria-label={`${photo.title}. ${zoomed ? "Click to zoom out" : "Click to zoom in"}`}
             onPointerDown={(event) => {
               suppressClick.current = false;
