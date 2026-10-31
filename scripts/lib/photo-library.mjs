@@ -47,7 +47,7 @@ export async function discoverFolders(root, curation) {
       folder,
       title: known?.title ?? labelOf(folder),
       english: known?.english ?? "Another chapter. Another side.",
-      outfit: known?.outfit ?? "รอเพิ่มรายละเอียดชุด",
+      outfit: known?.outfit ?? "Styling details coming soon",
       preferredFiles: known?.preferredFiles ?? [],
     };
   });

@@ -1,0 +1,244 @@
+/* Right-hand navigation leaves the compact photographic page unobstructed. */
+.floating-collection-nav {
+  left: auto;
+  right: 14px;
+}
+@media (min-width: 1280px) {
+  .collections .section-padding {
+    padding-left: var(--gutter);
+    padding-right: calc(var(--gutter) + 145px);
+  }
+}
+@media (max-width: 1279px) {
+  .floating-collection-nav {
+    left: auto;
+    right: 18px;
+  }
+}
+@media (max-width: 560px) {
+  .floating-collection-nav {
+    left: auto;
+    right: 14px;
+  }
+}
+
+/* Six portraits fit together beneath the desktop chapter heading. */
+@media (min-width: 1024px) {
+  .chapter {
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+  .chapter-heading {
+    margin: 14px 0 16px;
+    gap: 20px;
+  }
+  .chapter-big-number {
+    font-size: 50px;
+  }
+  .chapter-heading h3 {
+    font-size: 30px;
+  }
+  .chapter-heading .eyebrow {
+    font-size: 7px;
+    margin-bottom: 3px;
+  }
+  .event-details {
+    margin-bottom: 15px;
+  }
+  .event-details dl {
+    padding-top: 10px;
+  }
+  .event-details dt {
+    margin-bottom: 4px;
+    font-size: 6px;
+  }
+  .event-details dd {
+    font-size: 10px;
+  }
+  .selection-label {
+    margin-bottom: 10px;
+  }
+  .featured-photo-grid {
+    width: min(100%, calc((100svh - 410px) * 1.2 + 28px), 544px);
+    margin-inline: auto;
+    gap: 14px;
+  }
+  .featured-photo-grid .photo-tile {
+    height: clamp(125px, calc((100svh - 410px) / 2), 215px);
+    aspect-ratio: auto;
+  }
+  .collection-archive {
+    margin-top: 16px;
+  }
+  .archive-bar {
+    padding-top: 10px;
+  }
+}
+
+/* Equal-sized photographic film, floating in from the left and drifting right. */
+.film-reel-window {
+  overflow: hidden;
+  padding: 26px 0 32px;
+  perspective: 1100px;
+}
+.film-reel-track {
+  display: flex;
+  width: max-content;
+  animation: film-drift 105s linear infinite;
+  will-change: transform;
+}
+.film-reel-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+  animation: film-arrive 1.3s var(--ease) both;
+}
+.highlight-film-card {
+  flex: 0 0 auto;
+  width: clamp(185px, 21vw, 270px);
+  height: clamp(265px, 29vw, 370px);
+  padding: 10px 12px;
+  background: #1c1c1c;
+  color: #f5f4f0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: left;
+  box-shadow: 0 14px 24px #0002;
+  animation: film-float 6s ease-in-out infinite;
+}
+.highlight-film-card:nth-child(even) {
+  animation-delay: -3s;
+}
+.highlight-film-card img {
+  height: 0;
+  min-height: 0;
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+.film-perforations {
+  display: block;
+  height: 5px;
+  flex-shrink: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #eeede4 0 6px,
+    transparent 6px 17px
+  );
+  opacity: 0.85;
+}
+.film-card-caption {
+  font-size: 6px;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 12px;
+}
+.film-card-caption i {
+  font-style: normal;
+  color: #bdbbb1;
+}
+.film-reel-window:hover .film-reel-track,
+.film-reel-window:focus-within .film-reel-track,
+.film-reel-window.is-paused .film-reel-track,
+.film-reel-window:hover .highlight-film-card,
+.film-reel-window:focus-within .highlight-film-card,
+.film-reel-window.is-paused .highlight-film-card {
+  animation-play-state: paused;
+}
+.film-reel-window:focus-within .film-reel-track {
+  animation: none;
+  transform: translateX(0);
+}
+@keyframes film-drift {
+  from {
+    transform: translateX(-33.333333%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes film-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+@keyframes film-arrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-70px, 35px, -70px) rotateY(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotateY(0);
+  }
+}
+
+/* A helical film path passes both behind and in front of the back-facing pose. */
+.mode-rows .orbit-shard {
+  width: clamp(95px, 9vw, 135px);
+  height: clamp(130px, 12vw, 180px);
+}
+.mode-rows .shard-face {
+  clip-path: none;
+  background: #171717;
+  box-shadow: 0 10px 18px #0003;
+}
+.mode-rows .shard-face:before {
+  background: repeating-linear-gradient(0deg, #eee 0 5px, #171717 5px 16px);
+  inset: 8px 3px;
+  opacity: 0.9;
+}
+.mode-rows .shard-face img {
+  clip-path: none;
+  inset: 9px 11px;
+  width: calc(100% - 22px);
+  height: calc(100% - 18px);
+}
+.mode-rows .shard-number {
+  bottom: 13px;
+  left: 15px;
+  font-size: 6px;
+}
+.mode-rows .hero-person {
+  z-index: 20;
+}
+@media (max-width: 560px) {
+  .highlight-film-card {
+    width: 190px;
+    height: 270px;
+  }
+  .film-reel-group {
+    gap: 18px;
+    padding-right: 18px;
+  }
+  .mode-rows .orbit-shard {
+    width: 105px;
+    height: 140px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .film-reel-window {
+    overflow: auto;
+  }
+  .film-reel-group[aria-hidden="true"] {
+    display: none;
+  }
+  .film-reel-track {
+    animation: none;
+    transform: none;
+  }
+  .highlight-film-card {
+    animation: none;
+  }
+  .film-reel-group {
+    animation: none;
+  }
+}

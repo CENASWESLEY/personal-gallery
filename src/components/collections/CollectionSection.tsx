@@ -38,20 +38,20 @@ export function CollectionSection({
       <div className="event-details">
         <dl>
           <div>
-            <dt>สถานที่ / PLACE</dt>
+            <dt>PLACE</dt>
             <dd className={!detail.location ? "pending" : ""}>
-              {detail.location || "รอระบุสถานที่"}
+              {detail.location || "Location coming soon"}
             </dd>
           </div>
           <div>
-            <dt>วัน & เวลา / WHEN</dt>
+            <dt>DATE & TIME</dt>
             <dd className={!detail.date ? "pending" : ""}>
               {[detail.date, detail.time].filter(Boolean).join(" · ") ||
-                "รอระบุวันและเวลา"}
+                "Date and time coming soon"}
             </dd>
           </div>
           <div>
-            <dt>สไตล์ / THE LOOK</dt>
+            <dt>THE LOOK</dt>
             <dd>{detail.outfit}</dd>
           </div>
         </dl>

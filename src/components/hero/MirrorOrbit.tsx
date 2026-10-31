@@ -13,11 +13,20 @@ export function MirrorOrbit({
   onOpen: (selection: ViewerSelection) => void;
   mode?: HeroMode;
 }) {
-  const items =
-    mode === "rows"
-      ? [...collections, ...collections, ...collections]
-      : collections;
+  const items = collections;
   const orbit = useMirrorOrbit(items.length, mode);
+  const portraitId =
+    mode === "rows"
+      ? "c04-012"
+      : mode === "shatter"
+        ? "c04-006"
+        : heroPortrait.id;
+  const portraitSrc =
+    mode === "rows"
+      ? "/images/mark-back.webp"
+      : mode === "shatter"
+        ? "/images/mark-shatter.webp"
+        : "/images/mark-standing.webp";
   const open = (collectionId: string, photoIndex = 0) => {
     if (orbit.suppressClick.current) {
       orbit.suppressClick.current = false;
@@ -36,7 +45,7 @@ export function MirrorOrbit({
             ? "Rotating photo mirrors"
             : mode === "shatter"
               ? "Glass emerging and rising behind Mark"
-              : "Three rows of glass moving in alternating directions"
+              : "Photographic film spiraling upward around Mark"
         }
       >
         <span className="orbit-wordmark" aria-hidden="true">
@@ -73,13 +82,19 @@ export function MirrorOrbit({
               "black-suit",
               collections
                 .find((c) => c.id === "black-suit")!
-                .photos.findIndex((p) => p.id === heroPortrait.id),
+                .photos.findIndex((p) => p.id === portraitId),
             )
           }
         >
           <img
-            src="/images/mark-standing.webp"
-            alt="Supavit Mungmalee, also known as Mark Cenas, standing in a black suit"
+            src={portraitSrc}
+            alt={
+              mode === "rows"
+                ? "Mark facing away in a black suit"
+                : mode === "shatter"
+                  ? "Mark standing with one hand in his hair"
+                  : "Mark standing in a black suit"
+            }
             draggable={false}
             fetchPriority="high"
           />
@@ -104,7 +119,7 @@ export function MirrorOrbit({
             ? "DRAG THE MIRRORS. FIND A DIFFERENT SIDE."
             : mode === "shatter"
               ? "FROM A SINGLE MOMENT. A THOUSAND SIDES."
-              : "THREE ROWS. ENDLESS PERSPECTIVES."}
+              : "A SPIRAL OF MOMENTS. ALWAYS MOVING FORWARD."}
         </span>
         <div>
           <button

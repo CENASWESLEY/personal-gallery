@@ -50,8 +50,8 @@ export function CollectionArchive({
             onClick={() => setExpanded(!expanded)}
           >
             {expanded
-              ? "ปิดภาพทั้งหมด"
-              : `ดูทั้งหมด ${collection.photos.length} ภาพ`}
+              ? "Close archive"
+              : `View all ${collection.photos.length} photos`}
             <Icon name={expanded ? "close" : "down"} width="15" height="15" />
           </button>
         </div>
@@ -81,8 +81,8 @@ export function CollectionArchive({
           </div>
           <div className="pagination">
             <p aria-live="polite">
-              ภาพ {page * pageSize + 1}–
-              {Math.min((page + 1) * pageSize, collection.photos.length)} จาก{" "}
+              Photos {page * pageSize + 1}–
+              {Math.min((page + 1) * pageSize, collection.photos.length)} of{" "}
               {collection.photos.length}
             </p>
             <div>

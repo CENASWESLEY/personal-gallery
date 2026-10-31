@@ -1,5 +1,16 @@
 # Hero asset provenance
 
+## Additional poses for Shatter and Flow
+
+- Shatter: `public/images/mark-shatter.webp`, source `4.สูทดำ/S__16039965_0.jpg`.
+- Flow: `public/images/mark-back.webp`, source `4.สูทดำ/S__16039972_0.jpg`.
+- Both use built-in ImageGen background-extraction edits with transparent alpha.
+- Prompt: isolate only the entire standing person; preserve identity, original
+  pose, clothes, colors and lighting; remove architecture, plants, floor and
+  external shadows; do not redraw, beautify, reshape or turn the subject around.
+  Keep all hair and both shoes, with small transparent margins and no text.
+- The Flow target explicitly preserves the back-facing pose and side profile.
+
 - Source: `D:\Photo\4.สูทดำ\S__16039966_0.jpg`
 - Project asset: `public/images/mark-standing.webp`
 - Tool: built-in ImageGen, transparent-background edit (not CLI/API fallback)

@@ -18,10 +18,10 @@ export function CollectionOverview() {
           <br />
           <span className="serif">Choose your moment.</span>
         </h2>
-        <p lang="th">
-          ทุกชุดภาพมีเรื่องราวของตัวเอง
+        <p lang="en">
+          Every collection has a story of its own.
           <br />
-          เลือกคอลเลกชัน แล้วเข้ามาดูให้ใกล้อีกนิด
+          Choose a chapter. Take a closer look.
         </p>
       </div>
       <nav

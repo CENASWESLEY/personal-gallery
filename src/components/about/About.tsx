@@ -38,13 +38,13 @@ export function About({
             <br />
             Simply me.
           </h2>
-          <p lang="th">
-            ผมชื่อ <strong>Supavit Mungmalee</strong> เรียกผมว่า{" "}
-            <strong>Mark Cenas</strong> ก็ได้ครับ
+          <p>
+            My name is <strong>Supavit Mungmalee</strong>. You can call me{" "}
+            <strong>Mark Cenas.</strong>
           </p>
-          <p lang="th">
-            Mark มาจากชื่อเล่นของผม ส่วน Cenas มาจากชื่อช่อง{" "}
-            <strong>Cenaswesley</strong> — สองชื่อที่รวมเป็นอีกมุมหนึ่งของตัวผม
+          <p>
+            Mark is my nickname. Cenas comes from my channel,{" "}
+            <strong>Cenaswesley</strong> — two names, one evolving story.
           </p>
           <p className="about-signature">Different chapters. Same Mark.</p>
         </div>

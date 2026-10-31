@@ -2,9 +2,9 @@
   {
     "folder": "1.รับรางวัลสหกิจ",
     "id": "cooperative-awards",
-    "title": "รับรางวัลสหกิจ",
+    "title": "Cooperative Awards",
     "english": "A moment of recognition.",
-    "outfit": "เชิ้ตขาว · เนกไทดำ · ลุคทางการ",
+    "outfit": "White shirt, black tie, formal tailoring",
     "preferredFiles": [
       "S__16056324_0.jpg",
       "S__16056325_0.jpg",
@@ -17,9 +17,9 @@
   {
     "folder": "2.ประกวดสหกิจ",
     "id": "cooperative-competition",
-    "title": "ประกวดสหกิจ",
+    "title": "Cooperative Competition",
     "english": "Own the stage.",
-    "outfit": "เชิ้ตขาว · เนกไท · สูททางการ",
+    "outfit": "White shirt, tie, formal suit",
     "preferredFiles": [
       "S__16040089_0.jpg",
       "S__16040091_0.jpg",
@@ -30,9 +30,9 @@
   {
     "folder": "3.รับปริญญา",
     "id": "graduation",
-    "title": "รับปริญญา",
+    "title": "Graduation",
     "english": "The next chapter.",
-    "outfit": "ชุดครุย · เชิ้ตขาว · เนกไท",
+    "outfit": "Graduation gown, white shirt, tie",
     "preferredFiles": [
       "S__16039952_0.jpg",
       "S__16039942_0.jpg",
@@ -59,9 +59,9 @@
   {
     "folder": "4.สูทดำ",
     "id": "black-suit",
-    "title": "สูทดำ",
+    "title": "Black Suit",
     "english": "The black signature.",
-    "outfit": "สูทดำ · เชิ้ตดำ · ลุค all-black",
+    "outfit": "Black suit, black shirt, all-black styling",
     "preferredFiles": [
       "S__16039963_0.jpg",
       "S__16039966_0.jpg",
@@ -81,9 +81,9 @@
   {
     "folder": "5.สูทขาว",
     "id": "white-suit",
-    "title": "สูทขาว",
+    "title": "White Shirt & Suit",
     "english": "A lighter kind of classic.",
-    "outfit": "สูทดำ · เชิ้ตขาว · ลุค smart formal",
+    "outfit": "Black suit, white shirt, smart formal",
     "preferredFiles": [
       "S__16039977_0.jpg",
       "S__16039982_0.jpg",
@@ -101,7 +101,7 @@
     "id": "bkk-challenge",
     "title": "BKK Challenge",
     "english": "Show up. Stand out.",
-    "outfit": "สูทดำ · เชิ้ตขาว · ลุคออกงาน",
+    "outfit": "Black suit, white shirt, event tailoring",
     "preferredFiles": [
       "S__16040004_0.jpg",
       "S__16040002_0.jpg",
@@ -119,7 +119,7 @@
     "id": "coeidol",
     "title": "COEIDOL",
     "english": "Confidence, in the making.",
-    "outfit": "สูท · เชิ้ตขาว · เสื้อโปโลขาว",
+    "outfit": "Tailored suit, white shirt, white polo",
     "preferredFiles": [
       "S__16039994_0.jpg",
       "S__16039986_0.jpg",
@@ -142,7 +142,7 @@
     "id": "cafe-bkk-challenge",
     "title": "Cafe BKK Challenge",
     "english": "After the city slows down.",
-    "outfit": "เชิ้ตขาว · กางเกงดำ · ลุค relaxed",
+    "outfit": "White shirt, black trousers, relaxed styling",
     "preferredFiles": [
       "S__16048135_0.jpg",
       "S__16048134_0.jpg",
@@ -157,7 +157,7 @@
     "id": "white-shirt",
     "title": "White Shirt",
     "english": "White shirt. Open possibilities.",
-    "outfit": "เชิ้ตขาว · แว่นกันแดด · city casual",
+    "outfit": "White shirt, sunglasses, city casual",
     "preferredFiles": [
       "S__16040013_0.jpg",
       "S__16040023_0.jpg",
@@ -189,7 +189,7 @@
     "id": "blue-shirt",
     "title": "Blue Shirt",
     "english": "A little blue. A lot of me.",
-    "outfit": "เชิ้ตฟ้า · แว่นตา · smart casual",
+    "outfit": "Blue shirt, glasses, smart casual",
     "preferredFiles": [
       "S__16040055_0.jpg",
       "S__16040047_0.jpg",

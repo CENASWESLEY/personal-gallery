@@ -55,19 +55,19 @@ export function Hero({
               id: "orbit",
               number: "01",
               name: "Orbit",
-              caption: "กระจกวิ่งวน",
+              caption: "Orbiting glass",
             },
             {
               id: "shatter",
               number: "02",
               name: "Shatter",
-              caption: "แตกแล้วลอยขึ้น",
+              caption: "Rising fragments",
             },
             {
               id: "rows",
               number: "03",
               name: "Flow",
-              caption: "สามแถวสลับทิศ",
+              caption: "Spiraling film",
             },
           ] as const
         ).map((style) => (
@@ -78,7 +78,7 @@ export function Hero({
           >
             <span>{style.number}</span>
             <strong>{style.name}</strong>
-            <small lang="th">{style.caption}</small>
+            <small lang="en">{style.caption}</small>
           </button>
         ))}
       </div>

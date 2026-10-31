@@ -2,9 +2,9 @@
   {
     "id": "cooperative-competition",
     "folder": "1.ประกวดสหกิจ",
-    "title": "ประกวดสหกิจ",
+    "title": "Cooperative Competition",
     "english": "Own the stage.",
-    "outfit": "เชิ้ตขาว · เนกไท · สูททางการ",
+    "outfit": "White shirt, tie, formal suit",
     "photos": [
       {
         "id": "c02-001",
@@ -12,8 +12,8 @@
         "thumbnail": "/archive/c02-001-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "ประกวดสหกิจ / 01",
-        "alt": "Supavit Mungmalee — ประกวดสหกิจ, photograph 1",
+        "title": "Cooperative Competition / 01",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 1",
         "position": "50% 38%",
         "sourceFile": "S__16040089_0.jpg"
       },
@@ -23,8 +23,8 @@
         "thumbnail": "/archive/c02-003-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "ประกวดสหกิจ / 02",
-        "alt": "Supavit Mungmalee — ประกวดสหกิจ, photograph 2",
+        "title": "Cooperative Competition / 02",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 2",
         "position": "50% 38%",
         "sourceFile": "S__16040091_0.jpg"
       },
@@ -34,8 +34,8 @@
         "thumbnail": "/archive/c02-002-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "ประกวดสหกิจ / 03",
-        "alt": "Supavit Mungmalee — ประกวดสหกิจ, photograph 3",
+        "title": "Cooperative Competition / 03",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16040090_0.jpg"
       },
@@ -45,8 +45,8 @@
         "thumbnail": "/archive/c02-004-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "ประกวดสหกิจ / 04",
-        "alt": "Supavit Mungmalee — ประกวดสหกิจ, photograph 4",
+        "title": "Cooperative Competition / 04",
+        "alt": "Supavit Mungmalee — Cooperative Competition, photograph 4",
         "position": "50% 38%",
         "sourceFile": "S__16040092_0.jpg"
       }
@@ -55,9 +55,9 @@
   {
     "id": "cooperative-awards",
     "folder": "2.รับรางวัลสหกิจ",
-    "title": "รับรางวัลสหกิจ",
+    "title": "Cooperative Awards",
     "english": "A moment of recognition.",
-    "outfit": "เชิ้ตขาว · เนกไทดำ · ลุคทางการ",
+    "outfit": "White shirt, black tie, formal tailoring",
     "photos": [
       {
         "id": "c01-004",
@@ -65,8 +65,8 @@
         "thumbnail": "/archive/c01-004-thumb.webp",
         "width": 1170,
         "height": 1170,
-        "title": "รับรางวัลสหกิจ / 01",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 1",
+        "title": "Cooperative Awards / 01",
+        "alt": "Supavit Mungmalee — Cooperative Awards, photograph 1",
         "position": "50% 38%",
         "sourceFile": "S__16056324_0.jpg"
       },
@@ -76,8 +76,8 @@
         "thumbnail": "/archive/c01-005-thumb.webp",
         "width": 1170,
         "height": 1170,
-        "title": "รับรางวัลสหกิจ / 02",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 2",
+        "title": "Cooperative Awards / 02",
+        "alt": "Supavit Mungmalee — Cooperative Awards, photograph 2",
         "position": "50% 38%",
         "sourceFile": "S__16056325_0.jpg"
       },
@@ -87,21 +87,10 @@
         "thumbnail": "/archive/c01-001-thumb.webp",
         "width": 1600,
         "height": 1066,
-        "title": "รับรางวัลสหกิจ / 03",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 3",
+        "title": "Cooperative Awards / 03",
+        "alt": "Supavit Mungmalee — Cooperative Awards, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16040085_0.jpg"
-      },
-      {
-        "id": "c01-002",
-        "src": "/archive/c01-002.webp",
-        "thumbnail": "/archive/c01-002-thumb.webp",
-        "width": 1600,
-        "height": 1066,
-        "title": "รับรางวัลสหกิจ / 04",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 4",
-        "position": "50% 38%",
-        "sourceFile": "S__16040086_0.jpg"
       },
       {
         "id": "c01-006",
@@ -109,8 +98,8 @@
         "thumbnail": "/archive/c01-006-thumb.webp",
         "width": 1170,
         "height": 1170,
-        "title": "รับรางวัลสหกิจ / 05",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 5",
+        "title": "Cooperative Awards / 04",
+        "alt": "Supavit Mungmalee — Cooperative Awards, photograph 4",
         "position": "50% 38%",
         "sourceFile": "S__16056326_0.jpg"
       },
@@ -120,8 +109,8 @@
         "thumbnail": "/archive/c01-003-thumb.webp",
         "width": 1600,
         "height": 1066,
-        "title": "รับรางวัลสหกิจ / 06",
-        "alt": "Supavit Mungmalee — รับรางวัลสหกิจ, photograph 6",
+        "title": "Cooperative Awards / 05",
+        "alt": "Supavit Mungmalee — Cooperative Awards, photograph 5",
         "position": "50% 38%",
         "sourceFile": "S__16040087_0.jpg"
       }
@@ -130,9 +119,9 @@
   {
     "id": "graduation",
     "folder": "3.รับปริญญา",
-    "title": "รับปริญญา",
+    "title": "Graduation",
     "english": "The next chapter.",
-    "outfit": "ชุดครุย · เชิ้ตขาว · เนกไท",
+    "outfit": "Graduation gown, white shirt, tie",
     "photos": [
       {
         "id": "c03-013",
@@ -140,8 +129,8 @@
         "thumbnail": "/archive/c03-013-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 01",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 1",
+        "title": "Graduation / 01",
+        "alt": "Supavit Mungmalee — Graduation, photograph 1",
         "position": "50% 38%",
         "sourceFile": "S__16039952_0.jpg"
       },
@@ -151,8 +140,8 @@
         "thumbnail": "/archive/c03-004-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 02",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 2",
+        "title": "Graduation / 02",
+        "alt": "Supavit Mungmalee — Graduation, photograph 2",
         "position": "50% 38%",
         "sourceFile": "S__16039942_0.jpg"
       },
@@ -162,8 +151,8 @@
         "thumbnail": "/archive/c03-016-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 03",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 3",
+        "title": "Graduation / 03",
+        "alt": "Supavit Mungmalee — Graduation, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16039955_0.jpg"
       },
@@ -173,8 +162,8 @@
         "thumbnail": "/archive/c03-010-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 04",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 4",
+        "title": "Graduation / 04",
+        "alt": "Supavit Mungmalee — Graduation, photograph 4",
         "position": "50% 38%",
         "sourceFile": "S__16039948_0.jpg"
       },
@@ -184,8 +173,8 @@
         "thumbnail": "/archive/c03-017-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 05",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 5",
+        "title": "Graduation / 05",
+        "alt": "Supavit Mungmalee — Graduation, photograph 5",
         "position": "50% 38%",
         "sourceFile": "S__16039956_0.jpg"
       },
@@ -195,8 +184,8 @@
         "thumbnail": "/archive/c03-008-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 06",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 6",
+        "title": "Graduation / 06",
+        "alt": "Supavit Mungmalee — Graduation, photograph 6",
         "position": "50% 38%",
         "sourceFile": "S__16039946_0.jpg"
       },
@@ -206,8 +195,8 @@
         "thumbnail": "/archive/c03-011-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 07",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 7",
+        "title": "Graduation / 07",
+        "alt": "Supavit Mungmalee — Graduation, photograph 7",
         "position": "50% 38%",
         "sourceFile": "S__16039950_0.jpg"
       },
@@ -217,8 +206,8 @@
         "thumbnail": "/archive/c03-019-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 08",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 8",
+        "title": "Graduation / 08",
+        "alt": "Supavit Mungmalee — Graduation, photograph 8",
         "position": "50% 38%",
         "sourceFile": "S__16039958_0.jpg"
       },
@@ -228,8 +217,8 @@
         "thumbnail": "/archive/c03-006-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 09",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 9",
+        "title": "Graduation / 09",
+        "alt": "Supavit Mungmalee — Graduation, photograph 9",
         "position": "50% 38%",
         "sourceFile": "S__16039944_0.jpg"
       },
@@ -239,8 +228,8 @@
         "thumbnail": "/archive/c03-009-thumb.webp",
         "width": 1189,
         "height": 1189,
-        "title": "รับปริญญา / 10",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 10",
+        "title": "Graduation / 10",
+        "alt": "Supavit Mungmalee — Graduation, photograph 10",
         "position": "50% 38%",
         "sourceFile": "S__16039947_0.jpg"
       },
@@ -250,8 +239,8 @@
         "thumbnail": "/archive/c03-012-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 11",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 11",
+        "title": "Graduation / 11",
+        "alt": "Supavit Mungmalee — Graduation, photograph 11",
         "position": "50% 38%",
         "sourceFile": "S__16039951_0.jpg"
       },
@@ -261,8 +250,8 @@
         "thumbnail": "/archive/c03-007-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 12",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 12",
+        "title": "Graduation / 12",
+        "alt": "Supavit Mungmalee — Graduation, photograph 12",
         "position": "50% 38%",
         "sourceFile": "S__16039945_0.jpg"
       },
@@ -272,8 +261,8 @@
         "thumbnail": "/archive/c03-015-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 13",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 13",
+        "title": "Graduation / 13",
+        "alt": "Supavit Mungmalee — Graduation, photograph 13",
         "position": "50% 38%",
         "sourceFile": "S__16039954_0.jpg"
       },
@@ -283,8 +272,8 @@
         "thumbnail": "/archive/c03-014-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 14",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 14",
+        "title": "Graduation / 14",
+        "alt": "Supavit Mungmalee — Graduation, photograph 14",
         "position": "50% 38%",
         "sourceFile": "S__16039953_0.jpg"
       },
@@ -294,8 +283,8 @@
         "thumbnail": "/archive/c03-018-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 15",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 15",
+        "title": "Graduation / 15",
+        "alt": "Supavit Mungmalee — Graduation, photograph 15",
         "position": "50% 38%",
         "sourceFile": "S__16039957_0.jpg"
       },
@@ -305,8 +294,8 @@
         "thumbnail": "/archive/c03-001-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 16",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 16",
+        "title": "Graduation / 16",
+        "alt": "Supavit Mungmalee — Graduation, photograph 16",
         "position": "50% 38%",
         "sourceFile": "S__16039939_0.jpg"
       },
@@ -316,8 +305,8 @@
         "thumbnail": "/archive/c03-003-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "รับปริญญา / 17",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 17",
+        "title": "Graduation / 17",
+        "alt": "Supavit Mungmalee — Graduation, photograph 17",
         "position": "50% 38%",
         "sourceFile": "S__16039941_0.jpg"
       },
@@ -327,8 +316,8 @@
         "thumbnail": "/archive/c03-002-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "รับปริญญา / 18",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 18",
+        "title": "Graduation / 18",
+        "alt": "Supavit Mungmalee — Graduation, photograph 18",
         "position": "50% 38%",
         "sourceFile": "S__16039940_0.jpg"
       },
@@ -338,8 +327,8 @@
         "thumbnail": "/archive/c03-005-thumb.webp",
         "width": 1227,
         "height": 1900,
-        "title": "รับปริญญา / 19",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 19",
+        "title": "Graduation / 19",
+        "alt": "Supavit Mungmalee — Graduation, photograph 19",
         "position": "50% 38%",
         "sourceFile": "S__16039943_0.jpg"
       },
@@ -349,8 +338,8 @@
         "thumbnail": "/archive/c03-020-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "รับปริญญา / 20",
-        "alt": "Supavit Mungmalee — รับปริญญา, photograph 20",
+        "title": "Graduation / 20",
+        "alt": "Supavit Mungmalee — Graduation, photograph 20",
         "position": "50% 38%",
         "sourceFile": "S__16056323_0.jpg"
       }
@@ -359,9 +348,9 @@
   {
     "id": "black-suit",
     "folder": "4.สูทดำ",
-    "title": "สูทดำ",
+    "title": "Black Suit",
     "english": "The black signature.",
-    "outfit": "สูทดำ · เชิ้ตดำ · ลุค all-black",
+    "outfit": "Black suit, black shirt, all-black styling",
     "photos": [
       {
         "id": "c04-004",
@@ -369,8 +358,8 @@
         "thumbnail": "/archive/c04-004-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 01",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 1",
+        "title": "Black Suit / 01",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 1",
         "position": "50% 38%",
         "sourceFile": "S__16039963_0.jpg"
       },
@@ -380,8 +369,8 @@
         "thumbnail": "/archive/c04-007-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 02",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 2",
+        "title": "Black Suit / 02",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 2",
         "position": "50% 38%",
         "sourceFile": "S__16039966_0.jpg"
       },
@@ -391,8 +380,8 @@
         "thumbnail": "/archive/c04-001-thumb.webp",
         "width": 575,
         "height": 638,
-        "title": "สูทดำ / 03",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 3",
+        "title": "Black Suit / 03",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16039960_0.jpg"
       },
@@ -402,8 +391,8 @@
         "thumbnail": "/archive/c04-011-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 04",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 4",
+        "title": "Black Suit / 04",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 4",
         "position": "50% 38%",
         "sourceFile": "S__16039971_0.jpg"
       },
@@ -413,8 +402,8 @@
         "thumbnail": "/archive/c04-003-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 05",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 5",
+        "title": "Black Suit / 05",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 5",
         "position": "50% 38%",
         "sourceFile": "S__16039962_0.jpg"
       },
@@ -424,8 +413,8 @@
         "thumbnail": "/archive/c04-008-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 06",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 6",
+        "title": "Black Suit / 06",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 6",
         "position": "50% 38%",
         "sourceFile": "S__16039967_0.jpg"
       },
@@ -435,8 +424,8 @@
         "thumbnail": "/archive/c04-006-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 07",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 7",
+        "title": "Black Suit / 07",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 7",
         "position": "50% 38%",
         "sourceFile": "S__16039965_0.jpg"
       },
@@ -446,8 +435,8 @@
         "thumbnail": "/archive/c04-010-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "สูทดำ / 08",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 8",
+        "title": "Black Suit / 08",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 8",
         "position": "50% 38%",
         "sourceFile": "S__16039969_0.jpg"
       },
@@ -457,8 +446,8 @@
         "thumbnail": "/archive/c04-013-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 09",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 9",
+        "title": "Black Suit / 09",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 9",
         "position": "50% 38%",
         "sourceFile": "S__16039973_0.jpg"
       },
@@ -468,8 +457,8 @@
         "thumbnail": "/archive/c04-005-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 10",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 10",
+        "title": "Black Suit / 10",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 10",
         "position": "50% 38%",
         "sourceFile": "S__16039964_0.jpg"
       },
@@ -479,8 +468,8 @@
         "thumbnail": "/archive/c04-002-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 11",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 11",
+        "title": "Black Suit / 11",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 11",
         "position": "50% 38%",
         "sourceFile": "S__16039961_0.jpg"
       },
@@ -490,8 +479,8 @@
         "thumbnail": "/archive/c04-012-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 12",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 12",
+        "title": "Black Suit / 12",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 12",
         "position": "50% 38%",
         "sourceFile": "S__16039972_0.jpg"
       },
@@ -501,19 +490,30 @@
         "thumbnail": "/archive/c04-009-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทดำ / 13",
-        "alt": "Supavit Mungmalee — สูทดำ, photograph 13",
+        "title": "Black Suit / 13",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 13",
         "position": "50% 38%",
         "sourceFile": "S__16039968_0.jpg"
+      },
+      {
+        "id": "black-suit-4dae14db922f",
+        "src": "/archive/black-suit-4dae14db922f.webp",
+        "thumbnail": "/archive/black-suit-4dae14db922f-thumb.webp",
+        "width": 1267,
+        "height": 1900,
+        "title": "Black Suit / 14",
+        "alt": "Supavit Mungmalee — Black Suit, photograph 14",
+        "position": "50% 38%",
+        "sourceFile": "หันหลัง.jpg"
       }
     ]
   },
   {
     "id": "white-suit",
     "folder": "5.สูทขาว",
-    "title": "สูทขาว",
+    "title": "White Shirt & Suit",
     "english": "A lighter kind of classic.",
-    "outfit": "สูทดำ · เชิ้ตขาว · ลุค smart formal",
+    "outfit": "Black suit, white shirt, smart formal",
     "photos": [
       {
         "id": "c05-003",
@@ -521,8 +521,8 @@
         "thumbnail": "/archive/c05-003-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "สูทขาว / 01",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 1",
+        "title": "White Shirt & Suit / 01",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 1",
         "position": "50% 38%",
         "sourceFile": "S__16039977_0.jpg"
       },
@@ -532,8 +532,8 @@
         "thumbnail": "/archive/c05-008-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "สูทขาว / 02",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 2",
+        "title": "White Shirt & Suit / 02",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 2",
         "position": "50% 38%",
         "sourceFile": "S__16039982_0.jpg"
       },
@@ -543,8 +543,8 @@
         "thumbnail": "/archive/c05-007-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "สูทขาว / 03",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 3",
+        "title": "White Shirt & Suit / 03",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 3",
         "position": "50% 38%",
         "sourceFile": "S__16039981_0.jpg"
       },
@@ -554,8 +554,8 @@
         "thumbnail": "/archive/c05-004-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "สูทขาว / 04",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 4",
+        "title": "White Shirt & Suit / 04",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 4",
         "position": "50% 38%",
         "sourceFile": "S__16039978_0.jpg"
       },
@@ -565,8 +565,8 @@
         "thumbnail": "/archive/c05-002-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "สูทขาว / 05",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 5",
+        "title": "White Shirt & Suit / 05",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 5",
         "position": "50% 38%",
         "sourceFile": "S__16039976_0.jpg"
       },
@@ -576,8 +576,8 @@
         "thumbnail": "/archive/c05-009-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "สูทขาว / 06",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 6",
+        "title": "White Shirt & Suit / 06",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 6",
         "position": "50% 38%",
         "sourceFile": "S__16039983_0.jpg"
       },
@@ -587,8 +587,8 @@
         "thumbnail": "/archive/c05-001-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "สูทขาว / 07",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 7",
+        "title": "White Shirt & Suit / 07",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 7",
         "position": "50% 38%",
         "sourceFile": "S__16039975_0.jpg"
       },
@@ -598,8 +598,8 @@
         "thumbnail": "/archive/c05-005-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "สูทขาว / 08",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 8",
+        "title": "White Shirt & Suit / 08",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 8",
         "position": "50% 38%",
         "sourceFile": "S__16039979_0.jpg"
       },
@@ -609,8 +609,8 @@
         "thumbnail": "/archive/c05-006-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "สูทขาว / 09",
-        "alt": "Supavit Mungmalee — สูทขาว, photograph 9",
+        "title": "White Shirt & Suit / 09",
+        "alt": "Supavit Mungmalee — White Shirt & Suit, photograph 9",
         "position": "50% 38%",
         "sourceFile": "S__16039980_0.jpg"
       }
@@ -621,7 +621,7 @@
     "folder": "6.BKK challenge",
     "title": "BKK Challenge",
     "english": "Show up. Stand out.",
-    "outfit": "สูทดำ · เชิ้ตขาว · ลุคออกงาน",
+    "outfit": "Black suit, white shirt, event tailoring",
     "photos": [
       {
         "id": "c06-004",
@@ -729,7 +729,7 @@
     "folder": "6.COEIDOL",
     "title": "COEIDOL",
     "english": "Confidence, in the making.",
-    "outfit": "สูท · เชิ้ตขาว · เสื้อโปโลขาว",
+    "outfit": "Tailored suit, white shirt, white polo",
     "photos": [
       {
         "id": "c07-010",
@@ -892,7 +892,7 @@
     "folder": "7.Cafe BKK Challenge",
     "title": "Cafe BKK Challenge",
     "english": "After the city slows down.",
-    "outfit": "เชิ้ตขาว · กางเกงดำ · ลุค relaxed",
+    "outfit": "White shirt, black trousers, relaxed styling",
     "photos": [
       {
         "id": "c08-005",
@@ -967,7 +967,7 @@
     "folder": "8.White Shirt",
     "title": "White Shirt",
     "english": "White shirt. Open possibilities.",
-    "outfit": "เชิ้ตขาว · แว่นกันแดด · city casual",
+    "outfit": "White shirt, sunglasses, city casual",
     "photos": [
       {
         "id": "c09-003",
@@ -1091,24 +1091,13 @@
         "sourceFile": "S__16040011_0.jpg"
       },
       {
-        "id": "c09-006",
-        "src": "/archive/c09-006.webp",
-        "thumbnail": "/archive/c09-006-thumb.webp",
-        "width": 1023,
-        "height": 1537,
-        "title": "White Shirt / 12",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 12",
-        "position": "50% 38%",
-        "sourceFile": "S__16040016_0.jpg"
-      },
-      {
         "id": "c09-004",
         "src": "/archive/c09-004.webp",
         "thumbnail": "/archive/c09-004-thumb.webp",
         "width": 1536,
         "height": 1024,
-        "title": "White Shirt / 13",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 13",
+        "title": "White Shirt / 12",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 12",
         "position": "50% 38%",
         "sourceFile": "S__16040014_0.jpg"
       },
@@ -1118,8 +1107,8 @@
         "thumbnail": "/archive/c09-017-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "White Shirt / 14",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 14",
+        "title": "White Shirt / 13",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 13",
         "position": "50% 38%",
         "sourceFile": "S__16040029_0.jpg"
       },
@@ -1129,8 +1118,8 @@
         "thumbnail": "/archive/c09-010-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "White Shirt / 15",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 15",
+        "title": "White Shirt / 14",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 14",
         "position": "50% 38%",
         "sourceFile": "S__16040021_0.jpg"
       },
@@ -1140,8 +1129,8 @@
         "thumbnail": "/archive/c09-013-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "White Shirt / 16",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 16",
+        "title": "White Shirt / 15",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 15",
         "position": "50% 38%",
         "sourceFile": "S__16040024_0.jpg"
       },
@@ -1151,8 +1140,8 @@
         "thumbnail": "/archive/c09-016-thumb.webp",
         "width": 1267,
         "height": 1900,
-        "title": "White Shirt / 17",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 17",
+        "title": "White Shirt / 16",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 16",
         "position": "50% 38%",
         "sourceFile": "S__16040027_0.jpg"
       },
@@ -1162,8 +1151,8 @@
         "thumbnail": "/archive/c09-019-thumb.webp",
         "width": 1536,
         "height": 1024,
-        "title": "White Shirt / 18",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 18",
+        "title": "White Shirt / 17",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 17",
         "position": "50% 38%",
         "sourceFile": "S__16040031_0.jpg"
       },
@@ -1173,8 +1162,8 @@
         "thumbnail": "/archive/c09-021-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "White Shirt / 19",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 19",
+        "title": "White Shirt / 18",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 18",
         "position": "50% 38%",
         "sourceFile": "S__16040033_0.jpg"
       },
@@ -1184,8 +1173,8 @@
         "thumbnail": "/archive/c09-020-thumb.webp",
         "width": 1024,
         "height": 1536,
-        "title": "White Shirt / 20",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 20",
+        "title": "White Shirt / 19",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 19",
         "position": "50% 38%",
         "sourceFile": "S__16040032_0.jpg"
       },
@@ -1195,8 +1184,8 @@
         "thumbnail": "/archive/c09-002-thumb.webp",
         "width": 1023,
         "height": 1537,
-        "title": "White Shirt / 21",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 21",
+        "title": "White Shirt / 20",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 20",
         "position": "50% 38%",
         "sourceFile": "S__16040012_0.jpg"
       },
@@ -1206,8 +1195,8 @@
         "thumbnail": "/archive/c09-011-thumb.webp",
         "width": 748,
         "height": 819,
-        "title": "White Shirt / 22",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 22",
+        "title": "White Shirt / 21",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 21",
         "position": "50% 38%",
         "sourceFile": "S__16040022_0.jpg"
       },
@@ -1217,8 +1206,8 @@
         "thumbnail": "/archive/c09-014-thumb.webp",
         "width": 1600,
         "height": 1067,
-        "title": "White Shirt / 23",
-        "alt": "Supavit Mungmalee — White Shirt, photograph 23",
+        "title": "White Shirt / 22",
+        "alt": "Supavit Mungmalee — White Shirt, photograph 22",
         "position": "50% 38%",
         "sourceFile": "S__16040025_0.jpg"
       }
@@ -1229,7 +1218,7 @@
     "folder": "9.Blue Shirt",
     "title": "Blue Shirt",
     "english": "A little blue. A lot of me.",
-    "outfit": "เชิ้ตฟ้า · แว่นตา · smart casual",
+    "outfit": "Blue shirt, glasses, smart casual",
     "photos": [
       {
         "id": "c10-017",

@@ -11,22 +11,17 @@ export function mirrorTransform(
 ) {
   const radius = Math.min(width * 0.405, 600);
   if (mode === "rows") {
-    const perRow = Math.max(1, Math.ceil(count / 3));
-    const row = Math.floor(index / perRow);
-    const spacing = width < 600 ? 122 : 200;
-    const span = Math.max(width + spacing, perRow * spacing);
-    const direction = row === 1 ? -1 : 1;
-    const x =
-      (((((index % perRow) * spacing + phase * 4 * direction) % span) + span) %
-        span) -
-      span / 2;
+    const progress = (((index / Math.max(count, 1) + phase / 220) % 1) + 1) % 1;
+    const angle = progress * Math.PI * 4;
+    const depth = Math.cos(angle);
+    const x = (progress - 0.5) * radius * 1.4 + Math.sin(angle) * radius * 0.42;
     return {
       x,
-      y: (row - 1) * (width < 600 ? 146 : 185),
-      rotation: (index % 2 ? 1 : -1) * 7,
-      scale: 1,
-      opacity: 1,
-      z: row + 1,
+      y: 220 - progress * 470,
+      rotation: Math.sin(angle) * 20 - 8,
+      scale: 0.62 + (depth + 1) * 0.19,
+      opacity: Math.min(1, progress / 0.07, (1 - progress) / 0.07),
+      z: depth > 0 ? 24 : 3,
     };
   }
   if (mode === "shatter") {

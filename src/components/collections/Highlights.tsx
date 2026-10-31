@@ -1,24 +1,16 @@
 "use client";
+import { useState } from "react";
 import { highlights } from "@/data/gallery";
-import { PhotoTile } from "./PhotoTile";
 import { Icon } from "@/components/ui/Icon";
-import { useRef } from "react";
 import type { ViewerSelection } from "@/types/gallery";
 
-/** Dedicated, fully browsable highlight reel before every chronological chapter. */
+/** Equal-sized floating film frames drift right; focus/hover pause the reel. */
 export function Highlights({
   onOpen,
 }: {
   onOpen: (selection: ViewerSelection) => void;
 }) {
-  const track = useRef<HTMLDivElement>(null);
-  const scroll = (direction: number) =>
-    track.current?.scrollBy({
-      left: direction * track.current.clientWidth * 0.7,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+  const [paused, setPaused] = useState(false);
   return (
     <section
       className="highlights section-padding"
@@ -36,25 +28,19 @@ export function Highlights({
           <span className="serif">Lasting frames.</span>
         </h2>
         <div className="highlight-intro">
-          <p lang="th">
-            บางมุมที่ชอบ บางช่วงเวลาที่อยากให้คุณเห็นก่อน
+          <p>
+            A few moments I keep coming back to.
             <br />
-            Highlight ที่ผมชอบที่สุด
+            My personal favorites, in motion.
           </p>
           <div className="reel-controls">
             <button
-              className="icon-button"
-              onClick={() => scroll(-1)}
-              aria-label="Previous highlights"
+              className="text-link"
+              onClick={() => setPaused(!paused)}
+              aria-pressed={paused}
             >
-              <Icon name="left" />
-            </button>
-            <button
-              className="icon-button"
-              onClick={() => scroll(1)}
-              aria-label="Next highlights"
-            >
-              <Icon name="right" />
+              <Icon name={paused ? "play" : "pause"} width="14" height="14" />
+              {paused ? "Play film" : "Pause film"}
             </button>
             <button
               className="text-link"
@@ -68,30 +54,44 @@ export function Highlights({
           </div>
         </div>
       </div>
-      <div className="highlight-reel" ref={track}>
-        {highlights.map((photo, index) => (
-          <div className="highlight-slide" key={photo.id}>
-            <PhotoTile
-              photo={photo}
-              index={index}
-              onOpen={() =>
-                onOpen({ collectionId: "highlights", photoIndex: index })
-              }
-            />
-            <span>
-              {index < 3 ? "THE SELECTED FRAME" : "A DIFFERENT PERSPECTIVE"}
-              <i> / {String(index + 1).padStart(2, "0")}</i>
-            </span>
-          </div>
-        ))}
+      <div className={`film-reel-window ${paused ? "is-paused" : ""}`}>
+        <div className="film-reel-track">
+          {[0, 1, 2].map((copy) => (
+            <div
+              className="film-reel-group"
+              key={copy}
+              aria-hidden={copy > 0 ? true : undefined}
+            >
+              {highlights.map((photo, index) => (
+                <button
+                  className="highlight-film-card"
+                  key={photo.id}
+                  tabIndex={copy > 0 ? -1 : 0}
+                  aria-label={`View ${photo.title}`}
+                  onClick={() =>
+                    onOpen({ collectionId: "highlights", photoIndex: index })
+                  }
+                >
+                  <span className="film-perforations" />
+                  <img
+                    src={photo.thumbnail}
+                    alt={copy === 0 ? photo.alt : ""}
+                    loading="lazy"
+                  />
+                  <span className="film-card-caption">
+                    MARK. / SELECTED FRAME{" "}
+                    <i>{String(index + 1).padStart(2, "0")}</i>
+                  </span>
+                  <span className="film-perforations" />
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="reel-footer">
-        <span>SCROLL SIDEWAYS TO EXPLORE</span>
-        <span>
-          {highlights.length
-            ? `01 — ${String(highlights.length).padStart(2, "0")}`
-            : "NEW FRAMES COMING SOON"}
-        </span>
+        <span>A MOVING ARCHIVE OF FAVORITES</span>
+        <span>{highlights.length} SELECTED FRAMES</span>
       </div>
     </section>
   );

@@ -63,7 +63,7 @@
   padding-top: 54px;
 }
 .highlight-slide .photo-tile {
-  aspect-ratio: 0.72;
+  aspect-ratio: 0.5;
   width: 100%;
 }
 .highlight-slide > span {

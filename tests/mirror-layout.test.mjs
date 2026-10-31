@@ -2,16 +2,15 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { mirrorTransform } from "../src/lib/mirror-layout.ts";
 
-test("Flow sends rows 1 and 3 right and row 2 left", () => {
-  for (const [index, direction] of [
-    [0, 1],
-    [10, -1],
-    [20, 1],
-  ]) {
-    const before = mirrorTransform("rows", index, 30, 10, 1440);
-    const after = mirrorTransform("rows", index, 30, 11, 1440);
-    assert.equal(Math.sign(after.x - before.x), direction);
-  }
+test("Flow enters left/lower, coils upward, and leaves upper/right", () => {
+  const start = mirrorTransform("rows", 0, 30, 1, 1440),
+    end = mirrorTransform("rows", 0, 30, 219, 1440);
+  assert.ok(start.x < 0 && start.y > 0);
+  assert.ok(end.x > 0 && end.y < 0);
+  assert.ok(
+    mirrorTransform("rows", 0, 30, 55, 1440).z !==
+      mirrorTransform("rows", 0, 30, 110, 1440).z,
+  );
 });
 
 test("Shatter emerges behind the model and travels upward/outward", () => {
