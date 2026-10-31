@@ -1,5 +1,6 @@
 import { profile, highlights, heroPortrait } from "@/data/gallery";
 import { Icon } from "@/components/ui/Icon";
+import { photoFraming } from "@/lib/photo-framing";
 import type { ViewerSelection } from "@/types/gallery";
 
 /** Identity and name origin use only facts supplied by the owner. */
@@ -22,7 +23,7 @@ export function About({
             }
             aria-label="Open Mark's portrait"
           >
-            <img src={aboutPhoto.src} alt={aboutPhoto.alt} loading="lazy" />
+            <img src={aboutPhoto.src} alt={aboutPhoto.alt} loading="lazy" style={photoFraming(aboutPhoto)} />
             <span>
               THE PERSON BEHIND THE FRAMES{" "}
               <Icon name="expand" width="16" height="16" />

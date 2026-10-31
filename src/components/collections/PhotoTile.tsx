@@ -1,5 +1,6 @@
 import { Icon } from "@/components/ui/Icon";
 import type { Photograph } from "@/types/gallery";
+import { photoFraming } from "@/lib/photo-framing";
 
 /** Reusable image trigger; colors are never filtered or altered by the UI. */
 export function PhotoTile({
@@ -24,7 +25,7 @@ export function PhotoTile({
         alt={photo.alt}
         width={photo.width}
         height={photo.height}
-        style={{ objectPosition: photo.position }}
+        style={photoFraming(photo)}
         loading="lazy"
         draggable={false}
       />

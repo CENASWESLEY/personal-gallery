@@ -6,6 +6,8 @@ export interface Photograph {
   alt: string;
   title: string;
   position?: string;
+  /** Framed-image magnification: 1 = original crop, 1.3 = 130%. */
+  zoom: number;
   width: number;
   height: number;
   sourceFile: string;

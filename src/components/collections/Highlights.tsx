@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { highlights } from "@/data/gallery";
 import { Icon } from "@/components/ui/Icon";
+import { photoFraming } from "@/lib/photo-framing";
 import type { ViewerSelection } from "@/types/gallery";
 
 /** Equal-sized floating film frames drift right; focus/hover pause the reel. */
@@ -73,11 +74,14 @@ export function Highlights({
                   }
                 >
                   <span className="film-perforations" />
-                  <img
+                  <span className="film-photo-window">
+                    <img
                     src={photo.thumbnail}
                     alt={copy === 0 ? photo.alt : ""}
                     loading="lazy"
+                    style={photoFraming(photo)}
                   />
+                  </span>
                   <span className="film-card-caption">
                     MARK. / SELECTED FRAME{" "}
                     <i>{String(index + 1).padStart(2, "0")}</i>

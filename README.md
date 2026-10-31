@@ -126,3 +126,19 @@ tests/                       Library growth/ID and choreography checks
 ภาพ Hero แยกพื้นหลังเตรียมไว้แล้ว ดู provenance ใน `docs/asset-notes.md`
 ข้อมูล Event ที่รอเติมอยู่ใน `docs/event-details-template.md`
 Sites ใช้ project และ audience ส่วนตัวเดิม
+
+## Per-photo framing
+
+Edit `src/data/photographs.json`, locate a photo by `sourceFile`, then set:
+
+```json
+"position": "50% 30%",
+"zoom": 1.3
+```
+
+`zoom: 1` keeps the normal crop; `1.3` magnifies to 130%, and `1.5` to 150%.
+Use numeric values of 1 or higher. Zoom is anchored to `position`.
+These settings apply to chapter photos, album covers, the favorites reel,
+About and mirror photos. The full-screen viewer retains the full photograph
+and its own interactive zoom. Folder sync and builds preserve valid saved
+zoom/position values; newly imported photos start at `zoom: 1`.

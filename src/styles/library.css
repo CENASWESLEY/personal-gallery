@@ -45,34 +45,39 @@
   aspect-ratio: 1.06;
   isolation: isolate;
 }
-.folder-stack > img {
+.folder-stack > .folder-photo {
   position: absolute;
   inset: 8% 9% 5%;
   width: 82%;
   height: 87%;
-  object-fit: cover;
+  overflow: hidden;
   transform: rotate(0);
   transition: transform 0.55s var(--ease);
   box-shadow: 0 10px 15px #00000016;
 }
-.folder-stack > img:nth-child(1) {
+.folder-photo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.folder-stack > .folder-photo:nth-child(1) {
   z-index: 3;
 }
-.folder-stack > img:nth-child(2) {
+.folder-stack > .folder-photo:nth-child(2) {
   z-index: 2;
   transform: translateX(-7%) rotate(-7deg);
 }
-.folder-stack > img:nth-child(3) {
+.folder-stack > .folder-photo:nth-child(3) {
   z-index: 1;
   transform: translateX(7%) rotate(7deg);
 }
-.folder-card:hover .folder-stack > img:nth-child(1) {
+.folder-card:hover .folder-stack > .folder-photo:nth-child(1) {
   transform: translateY(-5px);
 }
-.folder-card:hover .folder-stack > img:nth-child(2) {
+.folder-card:hover .folder-stack > .folder-photo:nth-child(2) {
   transform: translateX(-11%) rotate(-11deg);
 }
-.folder-card:hover .folder-stack > img:nth-child(3) {
+.folder-card:hover .folder-stack > .folder-photo:nth-child(3) {
   transform: translateX(11%) rotate(11deg);
 }
 .folder-count {

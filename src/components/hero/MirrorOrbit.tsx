@@ -2,6 +2,7 @@
 import { collections, heroPortrait } from "@/data/gallery";
 import { useMirrorOrbit } from "@/hooks/useMirrorOrbit";
 import { Icon } from "@/components/ui/Icon";
+import { photoFraming } from "@/lib/photo-framing";
 import type { ViewerSelection } from "@/types/gallery";
 import type { HeroMode } from "@/types/hero";
 
@@ -85,6 +86,7 @@ export function MirrorOrbit({
             <span className="shard-face">
               <img
                 src={photo.thumbnail}
+                style={photoFraming(photo)}
                 alt=""
                 draggable={false}
                 loading={index > 5 ? "lazy" : "eager"}

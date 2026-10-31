@@ -53,6 +53,11 @@ test("folder renumbering and highlight growth preserve photo IDs", async () => {
     const initial = await syncPhotoLibrary({ project, root });
     const originalId = initial[0].photos[0].id;
     const highlightId = initial.find((g) => g.id === "highlights").photos[0].id;
+    assert.ok(initial.flatMap((group) => group.photos).every((photo) => photo.zoom === 1));
+    initial[0].photos[0].zoom = 1.35;
+    initial[0].photos[0].position = "60% 20%";
+    initial.find((g) => g.id === "highlights").photos[0].zoom = 1.6;
+    await writeFile(join(project, "src/data/photographs.json"), JSON.stringify(initial));
     await rename(join(root, "1.Event"), join(root, "2.Event"));
     await add("2.Event", "a.jpg");
     await add("Hightlight", "two.jpg");
@@ -67,6 +72,11 @@ test("folder renumbering and highlight growth preserve photo IDs", async () => {
       originalId,
     );
     assert.equal(expanded.find((g) => g.id === "event").photos.length, 3);
+    const framed = expanded.find((g) => g.id === "event").photos.find((p) => p.id === originalId);
+    assert.equal(framed.zoom, 1.35);
+    assert.equal(framed.position, "60% 20%");
+    assert.equal(expanded.find((g) => g.id === "highlights").photos[0].zoom, 1.6);
+    assert.equal(expanded.find((g) => g.id === "event").photos.find((p) => p.sourceFile === "a.jpg").zoom, 1);
     assert.equal(expanded.find((g) => g.id === "highlights").photos.length, 3);
     assert.equal(
       expanded

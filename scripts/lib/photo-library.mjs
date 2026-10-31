@@ -160,6 +160,7 @@ export async function syncPhotoLibrary({
         title: `${entry.title} / ${String(photos.length + 1).padStart(2, "0")}`,
         alt: `Supavit Mungmalee — ${entry.title}, photograph ${photos.length + 1}`,
         position: old?.position ?? "50% 38%",
+        zoom: Number.isFinite(old?.zoom) && old.zoom >= 1 ? old.zoom : 1,
         sourceFile: filename,
       });
     }
