@@ -181,7 +181,7 @@
 .event-story {
   font-size: 12px;
   line-height: 2;
-  max-width: 640px;
+  max-width: 100%;
   margin-top: 18px;
 }
 
