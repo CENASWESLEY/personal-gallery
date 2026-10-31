@@ -2,7 +2,7 @@ import { CollectionArchive } from "./CollectionArchive";
 import { FeaturedPhotoGrid } from "./FeaturedPhotoGrid";
 import type { Collection, ViewerSelection } from "@/types/gallery";
 
-/** Consistent chapter anatomy separates verified facts from pending details. */
+/** Presents each chapter's confirmed details, story and shared photo layouts. */
 export function CollectionSection({
   collection,
   onOpen,
@@ -44,7 +44,7 @@ export function CollectionSection({
             </dd>
           </div>
           <div>
-            <dt>DATE & TIME</dt>
+            <dt>{detail.time ? "DATE & TIME" : "DATE"}</dt>
             <dd className={!detail.date ? "pending" : ""}>
               {[detail.date, detail.time].filter(Boolean).join(" · ") ||
                 "Date and time coming soon"}
